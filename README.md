@@ -9,7 +9,7 @@ The NHCOL Evaluation includes the following files:
 * `.gitignore`. Used to exclude certain files from the repository.
 * `CHANGELOG.md`. The list of changes to the core project.
 * `README.md`. The file that you’re currently reading.
-* A `guido-evaluation` directory that contains the source code - a fully executable WordPress plugin.
+* A `nhcol-evaluation` directory that contains the source code - a fully executable WordPress plugin.
 
 ## Features
 
