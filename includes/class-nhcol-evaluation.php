@@ -25,7 +25,7 @@
  * @since      1.0.0
  * @package    Nhcol_Evaluation
  * @subpackage Nhcol_Evaluation/includes
- * @author     Luiz Almeida <luizhrqas@gmail.com>
+ * @author     NHCOL <luizhrqas@gmail.com>
  */
 class Nhcol_Evaluation {
 
