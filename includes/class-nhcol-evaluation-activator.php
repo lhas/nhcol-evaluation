@@ -3,11 +3,11 @@
 /**
  * Fired during plugin activation
  *
- * @link       http://example.com
+ * @link       http://0e1dev.com
  * @since      1.0.0
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
+ * @package    Nhcol_Evaluation
+ * @subpackage Nhcol_Evaluation/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
- * @author     Your Name <email@example.com>
+ * @package    Nhcol_Evaluation
+ * @subpackage Nhcol_Evaluation/includes
+ * @author     Luiz Almeida <luizhrqas@gmail.com>
  */
-class Plugin_Name_Activator {
+class Nhcol_Evaluation_Activator {
 
 	/**
 	 * Short Description. (use period)
