@@ -123,8 +123,28 @@ class Nhcol_Evaluation_Admin {
 
     return array_merge(  $settings_link, $links );
   }
+
   public function display_plugin_setup_page() {
     include_once( 'partials/nhcol-evaluation-admin-display.php' );
   }
+
+  public function validate($input) {
+    // All checkboxes inputs        
+    $valid = array();
+
+    $valid['company_name'] = (isset($input['company_name']) && !empty($input['company_name'])) ? $input['company_name'] : null;
+    $valid['evaluation_question'] = (isset($input['evaluation_question']) && !empty($input['evaluation_question'])) ? $input['evaluation_question'] : null;
+    $valid['evaluation_label_1'] = (isset($input['evaluation_label_1']) && !empty($input['evaluation_label_1'])) ? $input['evaluation_label_1'] : null;
+    $valid['evaluation_label_2'] = (isset($input['evaluation_label_2']) && !empty($input['evaluation_label_2'])) ? $input['evaluation_label_2'] : null;
+    $valid['evaluation_label_3'] = (isset($input['evaluation_label_3']) && !empty($input['evaluation_label_3'])) ? $input['evaluation_label_3'] : null;
+    $valid['evaluation_label_4'] = (isset($input['evaluation_label_4']) && !empty($input['evaluation_label_4'])) ? $input['evaluation_label_4'] : null;
+    $valid['evaluation_label_5'] = (isset($input['evaluation_label_5']) && !empty($input['evaluation_label_5'])) ? $input['evaluation_label_5'] : null;
+    
+    return $valid;
+ }
+
+ public function options_update() {
+    register_setting($this->plugin_name, $this->plugin_name, array($this, 'validate'));
+ }
 
 }
