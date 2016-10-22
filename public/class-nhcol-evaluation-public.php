@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 /**
  * The public-facing functionality of the plugin.
@@ -51,7 +51,12 @@ class Nhcol_Evaluation_Public {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+		$this->plugin_options = get_option($this->plugin_name);
 
+		// Shortcodes
+		add_shortcode('nhcol-evaluation-badge', array($this, 'badge_shortcode') );
+		add_shortcode('nhcol-evaluation-input', array($this, 'input_shortcode') );
+		add_shortcode('nhcol-evaluation-output', array($this, 'output_shortcode') );
 	}
 
 	/**
@@ -98,6 +103,38 @@ class Nhcol_Evaluation_Public {
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/nhcol-evaluation-public.js', array( 'jquery' ), $this->version, false );
 
+	}
+
+	/**
+	 * Badge shortcode.
+	 *
+	 * You can use it as: [nhcol-evaluation-badge]
+	 * It generates the badge.
+	 */
+	public function badge_shortcode() {
+		ob_start();
+		include('partials/shortcodes/badge.php');
+		return ob_get_clean();
+	}
+
+	/**
+	 * Input shortcode.
+	 *
+	 * You can use it as: [nhcol-evaluation-input]
+	 * It generates the input form.
+	 */
+	public function input_shortcode() {
+		return 'ae';
+	}
+
+	/**
+	 * Output shortcode.
+	 *
+	 * You can use it as: [nhcol-evaluation-output]
+	 * It generates the output data.
+	 */
+	public function output_shortcode() {
+		return 'ae';
 	}
 
 }

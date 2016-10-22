@@ -73,7 +73,11 @@ class Nhcol_Evaluation_Admin {
      * class.
      */
 
-    wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/nhcol-evaluation-admin.css', array(), $this->version, 'all' );
+    if ( 'settings_page_nhcol-evaluation' == get_current_screen() -> id ) {
+      // CSS stylesheet for Color Picker
+      wp_enqueue_style( 'wp-color-picker' );
+      wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/nhcol-evaluation-admin.css', array( 'wp-color-picker' ), $this->version, 'all' );
+    }
 
   }
 
@@ -96,7 +100,11 @@ class Nhcol_Evaluation_Admin {
      * class.
      */
 
-    wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/nhcol-evaluation-admin.js', array( 'jquery' ), $this->version, false );
+    if ( 'settings_page_nhcol-evaluation' == get_current_screen() -> id ) {
+      wp_enqueue_media();
+      wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/nhcol-evaluation-admin.js', array( 'jquery', 'wp-color-picker', 'media-upload' ), $this->version, false );
+    }
+
 
   }
 
@@ -133,12 +141,45 @@ class Nhcol_Evaluation_Admin {
     $valid = array();
 
     $valid['company_name'] = (isset($input['company_name']) && !empty($input['company_name'])) ? $input['company_name'] : null;
+
     $valid['evaluation_question'] = (isset($input['evaluation_question']) && !empty($input['evaluation_question'])) ? $input['evaluation_question'] : null;
+
     $valid['evaluation_label_1'] = (isset($input['evaluation_label_1']) && !empty($input['evaluation_label_1'])) ? $input['evaluation_label_1'] : null;
     $valid['evaluation_label_2'] = (isset($input['evaluation_label_2']) && !empty($input['evaluation_label_2'])) ? $input['evaluation_label_2'] : null;
     $valid['evaluation_label_3'] = (isset($input['evaluation_label_3']) && !empty($input['evaluation_label_3'])) ? $input['evaluation_label_3'] : null;
     $valid['evaluation_label_4'] = (isset($input['evaluation_label_4']) && !empty($input['evaluation_label_4'])) ? $input['evaluation_label_4'] : null;
     $valid['evaluation_label_5'] = (isset($input['evaluation_label_5']) && !empty($input['evaluation_label_5'])) ? $input['evaluation_label_5'] : null;
+
+    $valid['button_background'] = (isset($input['button_background']) && !empty($input['button_background'])) ? $input['button_background'] : null;
+    $valid['button_text'] = (isset($input['button_text']) && !empty($input['button_text'])) ? $input['button_text'] : null;
+
+    //First Color Picker
+    $valid['button_background'] = (isset($input['button_background']) && !empty($input['button_background'])) ? sanitize_text_field($input['button_background']) : '';
+
+    if ( !empty($valid['button_background']) && !preg_match( '/^#[a-f0-9]{6}$/i', $valid['button_background']  ) ) { // if user insert a HEX color with #
+        add_settings_error(
+                'button_background',                     // Setting title
+                'button_background_texterror',            // Error ID
+                'Please enter a valid hex value color',     // Error message
+                'error'                         // Type of message
+        );
+    }
+
+    //Second Color Picker
+    $valid['button_text'] = (isset($input['button_text']) && !empty($input['button_text'])) ? sanitize_text_field($input['button_text']) : '';
+    
+    if ( !empty($valid['button_text']) && !preg_match( '/^#[a-f0-9]{6}$/i', $valid['button_text']  ) ) { // if user insert a HEX color with #
+        add_settings_error(
+                'button_text',                     // Setting title
+                'button_text_texterror',            // Error ID
+                'Please enter a valid hex value color',     // Error message
+                'error'                         // Type of message
+        );
+    }
+
+    // Company Logo id
+    $valid['company_logo_id'] = (isset($input['company_logo_id']) && !empty($input['company_logo_id'])) ? absint($input['company_logo_id']) : 0;
+
     
     return $valid;
  }

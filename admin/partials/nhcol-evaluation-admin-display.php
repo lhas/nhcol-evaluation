@@ -20,130 +20,68 @@
     <form method="post" name="<?php echo $this->plugin_name; ?>_options" action="options.php">
 
       <?php
-        //Grab all options
         $options = get_option($this->plugin_name);
 
-        // Cleanup
         $company_name = @$options['company_name'];
+
         $evaluation_question = @$options['evaluation_question'];
         $evaluation_label_1 = @$options['evaluation_label_1'];
         $evaluation_label_2 = @$options['evaluation_label_2'];
         $evaluation_label_3 = @$options['evaluation_label_3'];
         $evaluation_label_4 = @$options['evaluation_label_4'];
         $evaluation_label_5 = @$options['evaluation_label_5'];
+
+        $evaluation_label_5 = @$options['evaluation_label_5'];
+
+        $button_background = @$options['button_background'];
+        $button_text = @$options['button_text'];
+
+        $company_logo_id = @$options['company_logo_id'];
+        $company_logo = wp_get_attachment_image_src( $company_logo_id, 'thumbnail' );
+        $company_logo_url = $company_logo[0];
+
+        if( isset( $_GET[ 'tab' ] ) ) {
+            $active_tab = $_GET[ 'tab' ];
+        } else {
+            $active_tab = 'general_options';
+        }
     ?>
 
     <?php
         settings_fields($this->plugin_name);
         do_settings_sections($this->plugin_name);
     ?>
-      
-      <h3>General Config</h3>
 
-        <!--
-        <fieldset>
-            <p>Seal Logo</p>
-            <legend class="screen-reader-text"><span><?php _e('Choose your prefered cdn provider', $this->plugin_name); ?></span></legend>
-            <input type="file">
-        </fieldset>
+    <h2 class="nav-tab-wrapper">
+        <a href="?page=nhcol-evaluation&tab=general_options" class="nav-tab <?php echo $active_tab == 'general_options' ? 'nav-tab-active' : ''; ?>">General Options</a>
+        <a href="?page=nhcol-evaluation&tab=input_options" class="nav-tab <?php echo $active_tab == 'input_options' ? 'nav-tab-active' : ''; ?>">Input Options</a>
+        <a href="?page=nhcol-evaluation&tab=output_options" class="nav-tab <?php echo $active_tab == 'output_options' ? 'nav-tab-active' : ''; ?>">Output Options</a>
+        <a href="?page=nhcol-evaluation&tab=logos_options" class="nav-tab <?php echo $active_tab == 'logos_options' ? 'nav-tab-active' : ''; ?>">Logos Options</a>
+        <a href="?page=nhcol-evaluation&tab=colors_options" class="nav-tab <?php echo $active_tab == 'colors_options' ? 'nav-tab-active' : ''; ?>">Colors Options</a>
+    </h2>
 
-        <fieldset>
-            <p>Company Logo</p>
-            <legend class="screen-reader-text"><span><?php _e('Choose your prefered cdn provider', $this->plugin_name); ?></span></legend>
-            <input type="file">
-        </fieldset>-->
+    
+    <div class="<?php if($active_tab != 'general_options') : ?>hidden<?php endif; ?>">
+        <?php require_once "tabs/general-options.php"; ?>
+    </div>
+    
+    <div class="<?php if($active_tab != 'input_options') : ?>hidden<?php endif; ?>">
+        <?php require_once "tabs/input-options.php"; ?>
+    </div>
+    
+    <div class="<?php if($active_tab != 'output_options') : ?>hidden<?php endif; ?>">
+        <?php require_once "tabs/output-options.php"; ?>
+    </div>
+    
+    <div class="<?php if($active_tab != 'logos_options') : ?>hidden<?php endif; ?>">
+        <?php require_once "tabs/logos-options.php"; ?>
+    </div>
+    
+    <div class="<?php if($active_tab != 'colors_options') : ?>hidden<?php endif; ?>">
+        <?php require_once "tabs/colors-options.php"; ?>
+    </div>
 
-        <fieldset>
-            <p>Company Name</p>
-            <legend class="screen-reader-text"><span><?php _e('Choose your prefered cdn provider', $this->plugin_name); ?></span></legend>
-            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-company_name" name="<?php echo $this->plugin_name; ?>[company_name]" value="<?php if(!empty($company_name)) echo $company_name; ?>"/>
-        </fieldset>
-
-      <h3>Input Config</h3>
-
-        <fieldset>
-            <p>Evaluation Title</p>
-            <legend class="screen-reader-text"><span><?php _e('Choose your prefered cdn provider', $this->plugin_name); ?></span></legend>
-            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-evaluation_question" name="<?php echo $this->plugin_name; ?>[evaluation_question]" value="<?php if(!empty($evaluation_question)) echo $evaluation_question; ?>"/>
-        </fieldset>
-
-        <fieldset>
-            <p>Evaluation Label #1</p>
-            <legend class="screen-reader-text"><span><?php _e('Choose your prefered cdn provider', $this->plugin_name); ?></span></legend>
-            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-evaluation_label_1" name="<?php echo $this->plugin_name; ?>[evaluation_label_1]" value="<?php if(!empty($evaluation_label_1)) echo $evaluation_label_1; ?>"/>
-        </fieldset>
-
-        <fieldset>
-            <p>Evaluation Label #2</p>
-            <legend class="screen-reader-text"><span><?php _e('Choose your prefered cdn provider', $this->plugin_name); ?></span></legend>
-            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-evaluation_label_2" name="<?php echo $this->plugin_name; ?>[evaluation_label_2]" value="<?php if(!empty($evaluation_label_1)) echo $evaluation_label_2; ?>"/>
-        </fieldset>
-
-        <fieldset>
-            <p>Evaluation Label #3</p>
-            <legend class="screen-reader-text"><span><?php _e('Choose your prefered cdn provider', $this->plugin_name); ?></span></legend>
-            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-evaluation_label_3" name="<?php echo $this->plugin_name; ?>[evaluation_label_3]" value="<?php if(!empty($evaluation_label_1)) echo $evaluation_label_3; ?>"/>
-        </fieldset>
-
-        <fieldset>
-            <p>Evaluation Label #4</p>
-            <legend class="screen-reader-text"><span><?php _e('Choose your prefered cdn provider', $this->plugin_name); ?></span></legend>
-            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-evaluation_label_4" name="<?php echo $this->plugin_name; ?>[evaluation_label_4]" value="<?php if(!empty($evaluation_label_1)) echo $evaluation_label_4; ?>"/>
-        </fieldset>
-
-        <fieldset>
-            <p>Evaluation Label #5</p>
-            <legend class="screen-reader-text"><span><?php _e('Choose your prefered cdn provider', $this->plugin_name); ?></span></legend>
-            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-evaluation_label_5" name="<?php echo $this->plugin_name; ?>[evaluation_label_5]" value="<?php if(!empty($evaluation_label_1)) echo $evaluation_label_5; ?>"/>
-        </fieldset>
-
-        <!--
-
-        <fieldset>
-            <p>Button Background Color</p>
-            <legend class="screen-reader-text"><span><?php _e('Choose your prefered cdn provider', $this->plugin_name); ?></span></legend>
-            <input type="url" class="regular-text" id="<?php echo $this->plugin_name; ?>-cdn_provider" name="<?php echo $this->plugin_name; ?>[cdn_provider]" value=""/>
-        </fieldset>
-
-        <fieldset>
-            <p>Button Text Color</p>
-            <legend class="screen-reader-text"><span><?php _e('Choose your prefered cdn provider', $this->plugin_name); ?></span></legend>
-            <input type="url" class="regular-text" id="<?php echo $this->plugin_name; ?>-cdn_provider" name="<?php echo $this->plugin_name; ?>[cdn_provider]" value=""/>
-        </fieldset>
-
-        <fieldset>
-            <p>First Text on Right Column</p>
-            <legend class="screen-reader-text"><span><?php _e('Choose your prefered cdn provider', $this->plugin_name); ?></span></legend>
-            <textarea name="<?php echo $this->plugin_name; ?>[cdn_provider]" class="regular-text" id="<?php echo $this->plugin_name; ?>-cdn_provider" cols="30" rows="10"></textarea>
-        </fieldset>
-
-        <fieldset>
-            <p>Second Text on Right Column</p>
-            <legend class="screen-reader-text"><span><?php _e('Choose your prefered cdn provider', $this->plugin_name); ?></span></legend>
-            <textarea name="<?php echo $this->plugin_name; ?>[cdn_provider]" class="regular-text" id="<?php echo $this->plugin_name; ?>-cdn_provider" cols="30" rows="10"></textarea>
-        </fieldset>
-
-      <h3>Input Config</h3>
-
-        <fieldset>
-            <legend class="screen-reader-text"><span>Empty until now</span></legend>
-            <label for="<?php echo $this->plugin_name; ?>-cleanup">
-                <input type="checkbox" id="<?php echo $this->plugin_name; ?>-cleanup" name="<?php echo $this->plugin_name; ?> [cleanup]" value="1"/>
-                <span><?php esc_attr_e('Empty until now', $this->plugin_name); ?></span>
-            </label>
-        </fieldset>
-
-      <h3>Output Config</h3>
-
-        <fieldset>
-            <legend class="screen-reader-text"><span>Empty until now</span></legend>
-            <label for="<?php echo $this->plugin_name; ?>-cleanup">
-                <input type="checkbox" id="<?php echo $this->plugin_name; ?>-cleanup" name="<?php echo $this->plugin_name; ?> [cleanup]" value="1"/>
-                <span><?php esc_attr_e('Empty until now', $this->plugin_name); ?></span>
-            </label>
-        </fieldset>-->
-
-        <?php submit_button('Save all changes', 'primary','submit', TRUE); ?>
+        <?php submit_button(__('Save all', $this->plugin_name), 'primary','submit', TRUE); ?>
 
     </form>
 

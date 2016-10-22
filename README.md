@@ -2,6 +2,12 @@
 
 A plugin for evaluations in WordPress.
 
+## Shortcodes
+
+* [nhcol-evaluation-badge] - It generates the Badge for user.
+* [nhcol-evaluation-input] - It generates the Input Form.
+* [nhcol-evaluation-output] - It generates the Output Data.
+
 ## Contents
 
 The NHCOL Evaluation includes the following files:
