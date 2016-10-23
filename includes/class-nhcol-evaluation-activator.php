@@ -30,7 +30,29 @@ class Nhcol_Evaluation_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
+		global $wpdb;
 
+		$table_name = $wpdb->prefix . "nhcol_evaluation"; 
+
+		$charset_collate = $wpdb->get_charset_collate();
+
+		$sql = "CREATE TABLE $table_name (
+			id mediumint(9) NOT NULL AUTO_INCREMENT,
+			time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+			email varchar(255) NOT NULL,
+			comment text NOT NULL,
+			order_number varchar(255) NOT NULL,
+			evaluation_field_1 int NULL,
+			evaluation_field_2 int NULL,
+			evaluation_field_3 int NULL,
+			evaluation_field_4 int NULL,
+			evaluation_field_5 int NULL,
+			confirmed int DEFAULT '0' NULL,
+			PRIMARY KEY  (id)
+		) $charset_collate;";
+
+		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+		dbDelta( $sql );
 	}
 
 }

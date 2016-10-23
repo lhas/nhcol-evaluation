@@ -7,3 +7,5 @@
     <p><?php _e('Button Text', $this->plugin_name); ?></p>
     <input type="text" class="nhcol-evaluation-color-picker" id="<?php echo $this->plugin_name; ?>-button_text" name="<?php echo $this->plugin_name; ?>[button_text]" value="<?php if(!empty($button_text)) echo $button_text; ?>"/>
 </fieldset>
+
+<?php submit_button(__('Save all', $this->plugin_name), 'primary','submit', TRUE); ?>

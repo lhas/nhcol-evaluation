@@ -124,7 +124,9 @@ class Nhcol_Evaluation_Public {
 	 * It generates the input form.
 	 */
 	public function input_shortcode() {
-		return 'ae';
+		ob_start();
+		include('partials/shortcodes/input.php');
+		return ob_get_clean();
 	}
 
 	/**
