@@ -53,11 +53,11 @@
     ?>
 
     <h2 class="nav-tab-wrapper">
-        <a href="?page=nhcol-evaluation&tab=general_options" class="nav-tab <?php echo $active_tab == 'general_options' ? 'nav-tab-active' : ''; ?>">General Options</a>
-        <a href="?page=nhcol-evaluation&tab=input_options" class="nav-tab <?php echo $active_tab == 'input_options' ? 'nav-tab-active' : ''; ?>">Input Options</a>
-        <a href="?page=nhcol-evaluation&tab=output_options" class="nav-tab <?php echo $active_tab == 'output_options' ? 'nav-tab-active' : ''; ?>">Output Options</a>
-        <a href="?page=nhcol-evaluation&tab=logos_options" class="nav-tab <?php echo $active_tab == 'logos_options' ? 'nav-tab-active' : ''; ?>">Logos Options</a>
-        <a href="?page=nhcol-evaluation&tab=colors_options" class="nav-tab <?php echo $active_tab == 'colors_options' ? 'nav-tab-active' : ''; ?>">Colors Options</a>
+        <a href="?page=nhcol-evaluation_setup&tab=general_options" class="nav-tab <?php echo $active_tab == 'general_options' ? 'nav-tab-active' : ''; ?>">General Options</a>
+        <a href="?page=nhcol-evaluation_setup&tab=input_options" class="nav-tab <?php echo $active_tab == 'input_options' ? 'nav-tab-active' : ''; ?>">Input Options</a>
+        <a href="?page=nhcol-evaluation_setup&tab=output_options" class="nav-tab <?php echo $active_tab == 'output_options' ? 'nav-tab-active' : ''; ?>">Output Options</a>
+        <a href="?page=nhcol-evaluation_setup&tab=logos_options" class="nav-tab <?php echo $active_tab == 'logos_options' ? 'nav-tab-active' : ''; ?>">Logos Options</a>
+        <a href="?page=nhcol-evaluation_setup&tab=colors_options" class="nav-tab <?php echo $active_tab == 'colors_options' ? 'nav-tab-active' : ''; ?>">Colors Options</a>
     </h2>
 
     <div class="<?php if($active_tab != 'general_options') : ?>hidden<?php endif; ?>">
