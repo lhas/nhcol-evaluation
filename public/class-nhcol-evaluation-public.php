@@ -22,6 +22,10 @@
  */
 class Nhcol_Evaluation_Public {
 
+	// validation confirmed
+	public $error 	= false;
+	public $success = false;
+
 	/**
 	 * The ID of this plugin.
 	 *
@@ -57,6 +61,53 @@ class Nhcol_Evaluation_Public {
 		add_shortcode('nhcol-evaluation-badge', array($this, 'badge_shortcode') );
 		add_shortcode('nhcol-evaluation-input', array($this, 'input_shortcode') );
 		add_shortcode('nhcol-evaluation-output', array($this, 'output_shortcode') );
+
+		add_action('wp_head', array($this, 'validate_evaluation_confirm') );
+
+	}
+
+	/**
+	* Function called when we need to validate evaluation confirm (from email).
+	*/
+	public function validate_evaluation_confirm() {
+		if(isset($_GET['evaluation_confirm'])) {
+
+			global $wpdb;
+
+			// evaluation_id decoded
+			$evaluation_id = base64_decode($_GET['evaluation_confirm']);
+
+			// get current evaluation selected
+			$table_name = $wpdb->prefix . 'nhcol_evaluation';
+			$evaluation = $wpdb->get_row( "SELECT * FROM $table_name WHERE id = $evaluation_id" );
+			
+			// if evaluation already confirmed
+			if($evaluation->confirmed == "1") {
+				$this->error = __('Evaluation already confirmed.', $this->plugin_name);
+			}
+			
+			// if evaluation still not confirmed
+			if($evaluation->confirmed == "0") {
+				// update it
+				$wpdb->update( $table_name, array('confirmed' => '1'), array('id' => $evaluation_id) );
+
+				$this->success = __('The evaluation was confirmed. Thank you.', $this->plugin_name);
+			}
+
+			add_action( 'wp_footer', array(&$this, 'evaluation_confirmed_output') );
+
+		}
+	}
+
+
+	public function evaluation_confirmed_output() {
+		if($this->success) {
+			require_once "partials/confirmed/success.php";
+		}
+
+		if($this->error) {
+			require_once "partials/confirmed/error.php";
+		}
 	}
 
 	/**

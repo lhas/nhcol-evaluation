@@ -11,6 +11,7 @@ class Evaluation_List_Table extends WP_List_Table {
 
     $columns = array(
       'cb'        => '<input type="checkbox" />',
+      'confirmed' => 'Confirmed?',
       'email' => 'Email',
       'comment'    => 'Comment',
       'order_number'      => 'Order N.',
@@ -75,7 +76,12 @@ class Evaluation_List_Table extends WP_List_Table {
   }
 
   function column_default( $item, $column_name ) {
-    switch( $column_name ) { 
+    switch( $column_name ) {
+      case 'confirmed':
+
+        return ($item[ $column_name ] == "1") ? '<span style="color: green; font-weight: bold;">' . __('Yes', 'nhcol-evaluation') . '</span>' : '<span style="color: red; font-weight: bold;">' . __('No', 'nhcol-evaluation') . '</span>';
+
+        break;
       case 'email':
       case 'comment':
       case 'order_number':

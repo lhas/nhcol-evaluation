@@ -35,7 +35,27 @@ function wp_insert_evaluation( $args = array() ) {
 
         // insert a new
         if ( $wpdb->insert( $table_name, $args ) ) {
-            return $wpdb->insert_id;
+
+            // confirmed email stuff
+            $id = $wpdb->insert_id;
+            $to = $args['email'];
+            $company =  '[' . get_bloginfo('name') . '] ';
+            $subject = $company . __('You must confirm your evaluation', 'nhcol-evaluation');
+            $message = '<p>' . __('Hello!', 'nhcol-evaluation') . '</p>';
+            $url = get_bloginfo('url') . '/?evaluation_confirm=' . base64_encode($id);
+
+            $message .= '<p>' . __('Recently you submitted a evaluation about our store.', 'nhcol-evaluation') . '</p>';
+            $message .= '<p>' . __('Now you need to confirm it, so we can show it at our website.', 'nhcol-evaluation') . '</p>';
+            $message .= '<p>' . __('You just need to click in the link below:', 'nhcol-evaluation') . '</p>';
+            $message .= '<a href="' . $url . '">' . $url . '</a>';
+
+            add_filter( 'wp_mail_content_type', function( $content_type ) {
+                return 'text/html';
+            });
+            
+            wp_mail($to, $subject, $message);
+
+            return $id;
         }
 
     } else {
