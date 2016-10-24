@@ -56,6 +56,8 @@ register_deactivation_hook( __FILE__, 'deactivate_nhcol_evaluation' );
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-nhcol-evaluation.php';
+require plugin_dir_path( __FILE__ ) . 'admin/includes/helpers.php';
+require plugin_dir_path( __FILE__ ) . 'admin/includes/form-handler.php';
 
 /**
  * Begins execution of the plugin.

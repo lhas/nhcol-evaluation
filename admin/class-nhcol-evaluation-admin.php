@@ -117,8 +117,17 @@ class Nhcol_Evaluation_Admin {
     *        Administration Menus: http://codex.wordpress.org/Administration_Menus
     *
     */
-    add_options_page( 'NHCOL Evaluation Setup', 'NHCOL Evaluation', 'manage_options', $this->plugin_name, array($this, 'display_plugin_setup_page')
+    add_menu_page( 'NHCOL Evaluation Setup',  __('Evaluations', $this->plugin_name), 'manage_options', $this->plugin_name, array($this, 'display_plugin_all_page'), 'dashicons-megaphone'
     );
+
+    add_submenu_page( $this->plugin_name,  __('Add New', $this->plugin_name),  __('Add New', $this->plugin_name),
+    'manage_options', $this->plugin_name. '_add_new', array($this, 'display_plugin_add_new_page'));
+
+    add_submenu_page( $this->plugin_name,  __('Setup', $this->plugin_name),  __('Setup', $this->plugin_name),
+    'manage_options', $this->plugin_name. '_setup', array($this, 'display_plugin_setup_page'));
+
+    add_submenu_page( null,  __('Edit', $this->plugin_name),  __('Edit', $this->plugin_name),
+    'manage_options', $this->plugin_name. '_edit', array($this, 'display_plugin_edit_page'));
   }
   
   public function add_action_links( $links ) {
@@ -130,6 +139,25 @@ class Nhcol_Evaluation_Admin {
     );
 
     return array_merge(  $settings_link, $links );
+  }
+
+  public function display_plugin_all_page() {
+    include_once( 'partials/nhcol-evaluation-admin-all.php' );
+  }
+
+  public function display_plugin_add_new_page() {
+    include_once( 'partials/nhcol-evaluation-admin-add-new.php' );
+  }
+
+  public function display_plugin_edit_page() {
+    
+    global $wpdb;
+    $evaluation_id = $_GET['evaluation'];
+
+    $table_name = $wpdb->prefix . 'nhcol_evaluation';
+    $evaluation = $wpdb->get_row( "SELECT * FROM $table_name WHERE id = $evaluation_id" );
+
+    include_once( 'partials/nhcol-evaluation-admin-edit.php' );
   }
 
   public function display_plugin_setup_page() {

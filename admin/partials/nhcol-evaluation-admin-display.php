@@ -58,7 +58,6 @@
         <a href="?page=nhcol-evaluation&tab=output_options" class="nav-tab <?php echo $active_tab == 'output_options' ? 'nav-tab-active' : ''; ?>">Output Options</a>
         <a href="?page=nhcol-evaluation&tab=logos_options" class="nav-tab <?php echo $active_tab == 'logos_options' ? 'nav-tab-active' : ''; ?>">Logos Options</a>
         <a href="?page=nhcol-evaluation&tab=colors_options" class="nav-tab <?php echo $active_tab == 'colors_options' ? 'nav-tab-active' : ''; ?>">Colors Options</a>
-        <a href="?page=nhcol-evaluation&tab=evaluations_management" class="nav-tab <?php echo $active_tab == 'evaluations_management' ? 'nav-tab-active' : ''; ?>">Evaluations Management</a>
     </h2>
 
     <div class="<?php if($active_tab != 'general_options') : ?>hidden<?php endif; ?>">
@@ -81,9 +80,7 @@
         <?php require_once "tabs/colors-options.php"; ?>
     </div>
     
-    <div class="<?php if($active_tab != 'evaluations_management') : ?>hidden<?php endif; ?>">
-        <?php require_once "tabs/evaluations-management.php"; ?>
-    </div>
+    <?php submit_button(__('Save all', $this->plugin_name), 'primary','submit', TRUE); ?>
 
     </form>
 

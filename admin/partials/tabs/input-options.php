@@ -33,5 +33,3 @@
     <legend class="screen-reader-text"><span><?php _e('Choose your prefered cdn provider', $this->plugin_name); ?></span></legend>
     <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-evaluation_label_5" name="<?php echo $this->plugin_name; ?>[evaluation_label_5]" value="<?php if(!empty($evaluation_label_1)) echo $evaluation_label_5; ?>"/>
 </fieldset>
-
-<?php submit_button(__('Save all', $this->plugin_name), 'primary','submit', TRUE); ?>

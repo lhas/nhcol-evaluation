@@ -7,32 +7,25 @@ if( ! class_exists( 'WP_List_Table' ) ) {
 class Evaluation_List_Table extends WP_List_Table {
   public static $table_name = "nhcol_evaluation";
 
-  var $example_data = array(
-    array('ID' => 1,'booktitle' => 'Quarter Share', 'author' => 'Nathan Lowell',
-          'isbn' => '978-0982514542'),
-    array('ID' => 2, 'booktitle' => '7th Son: Descent','author' => 'J. C. Hutchins',
-          'isbn' => '0312384378'),
-    array('ID' => 3, 'booktitle' => 'Shadowmagic', 'author' => 'John Lenahan',
-          'isbn' => '978-1905548927'),
-    array('ID' => 4, 'booktitle' => 'The Crown Conspiracy', 'author' => 'Michael J. Sullivan',
-          'isbn' => '978-0979621130'),
-    array('ID' => 5, 'booktitle'     => 'Max Quick: The Pocket and the Pendant', 'author'    => 'Mark Jeffrey',
-          'isbn' => '978-0061988929'),
-    array('ID' => 6, 'booktitle' => 'Jack Wakes Up: A Novel', 'author' => 'Seth Harwood',
-          'isbn' => '978-0307454355')
-  );
-
   function get_columns(){
+
     $columns = array(
+      'cb'        => '<input type="checkbox" />',
       'email' => 'Email',
       'comment'    => 'Comment',
       'order_number'      => 'Order N.',
-      'evaluation_field_1' => 'Field #1',
-      'evaluation_field_2' => 'Field #2',
-      'evaluation_field_3' => 'Field #3',
-      'evaluation_field_4' => 'Field #4',
-      'evaluation_field_5' => 'Field #5',
     );
+
+    $plugin_options = get_option('nhcol-evaluation');
+
+    for($i = 1; $i <= 5; $i++) {
+      $label = 'evaluation_label_' . $i;
+
+      if(!empty($plugin_options[$label])) {
+        $columns['evaluation_field_' . $i] = $plugin_options[$label];
+      }
+    }
+
     return $columns;
   }
 
@@ -69,7 +62,7 @@ class Evaluation_List_Table extends WP_List_Table {
     $this->process_bulk_action();
   
     // pagination stuff
-    $per_page     = $this->get_items_per_page( 'evaluations_per_page', 1 );
+    $per_page     = $this->get_items_per_page( 'evaluations_per_page', 10 );
     $current_page = $this->get_pagenum();
     $total_items  = self::record_count();
 
@@ -117,8 +110,7 @@ class Evaluation_List_Table extends WP_List_Table {
 
   function column_email($item) {
     $actions = array(
-              'edit'      => sprintf('<a href="?page=%s&action=%s&evaluation=%s&tab=%s">Edit</a>',$_REQUEST['page'],'edit',$item['id'], 'evaluations_management'),
-              'delete'    => sprintf('<a href="?page=%s&action=%s&evaluation=%s&tab=%s">Delete</a>',$_REQUEST['page'],'delete',$item['id'], 'evaluations_management'),
+              'edit'      => sprintf('<a href="?page=%s&evaluation=%s">Edit</a>','nhcol-evaluation_edit',$item['id']),
           );
 
     return sprintf('%1$s %2$s', $item['email'], $this->row_actions($actions) );
@@ -128,25 +120,21 @@ class Evaluation_List_Table extends WP_List_Table {
     //Detect when a bulk action is being triggered...
     if ( 'delete' === $this->current_action() ) {
 
-      $evaluation_id = isset($_REQUEST['evaluation']) ? $_REQUEST['evaluation'] : null;
+      $evaluations = isset($_REQUEST['evaluations']) ? $_REQUEST['evaluations'] : null;
       
-      if(!empty($evaluation_id)) {
+      if(!empty($evaluations)) {
         global $wpdb;
         
-        $table_name = $wpdb->prefix . self::$table_name;
-        // $wpdb->query("DELETE FROM $table_name WHERE id = $evaluation_id");
-
-		$query = array();
-		$redirect_to = add_query_arg( $query, menu_page_url( 'wpcf7', false ) );
-
-		wp_safe_redirect( $redirect_to );
-		exit();
+        foreach($evaluations as $evaluation_id) {
+          $table_name = $wpdb->prefix . self::$table_name;
+          $wpdb->query("DELETE FROM $table_name WHERE id = $evaluation_id");
+        }
       }
     }
 
   }
 
-  public static function get_evaluations( $per_page = 1, $page_number = 1 ) {
+  public static function get_evaluations( $per_page = 10, $page_number = 1 ) {
     global $wpdb;
 
     $table_name = self::$table_name;
@@ -157,6 +145,10 @@ class Evaluation_List_Table extends WP_List_Table {
       $sql .= ! empty( $_REQUEST['order'] ) ? ' ' . esc_sql( $_REQUEST['order'] ) : ' ASC';
     }
 
+    if ( empty( $_REQUEST['orderby'] ) ) {
+      $sql .= ' ORDER BY ' . esc_sql( 'id' ) . ' DESC';
+    }
+
     $sql .= " LIMIT $per_page";
 
     $sql .= ' OFFSET ' . ( $page_number - 1 ) * $per_page;
@@ -165,6 +157,19 @@ class Evaluation_List_Table extends WP_List_Table {
     $result = $wpdb->get_results( $sql, 'ARRAY_A' );
 
     return $result;
+  }
+
+  function get_bulk_actions() {
+    $actions = array(
+      'delete'    => 'Delete'
+    );
+    return $actions;
+  }
+
+  function column_cb($item) {
+      return sprintf(
+          '<input type="checkbox" name="evaluations[]" value="%s" />', $item['id']
+      );    
   }
 
 }
