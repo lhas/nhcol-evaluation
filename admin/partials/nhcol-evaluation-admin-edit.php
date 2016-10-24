@@ -20,36 +20,26 @@
           <th scope="row">Order Number</th>
           <td><input type="text" required name="evaluation[order_number]" class="regular-text" value="<?php echo @$evaluation->order_number; ?>" /></td>
         </tr>
+
+        <?php
+          $plugin_options = get_option('nhcol-evaluation');
+
+          for($i = 1; $i <= 5; $i++) {
+            $label = 'evaluation_label_' . $i;
+            $attribute = 'evaluation_field_' . $i;
+            
+            if(!empty($plugin_options[$label])) :
+        ?>
+
         <tr valign="top">
-          <th scope="row">Evaluation Field #1</th>
+          <th scope="row"><?php echo $plugin_options[$label]; ?></th>
           <td>
-            <input type="range" required name="evaluation[evaluation_field_1]"  min="1" max="5" value="<?php echo @$evaluation->evaluation_field_1; ?>" step="1">
+            <input type="range" required name="evaluation[evaluation_field_<?php echo $i; ?>]"  min="1" max="5" value="<?php echo @$evaluation->$attribute; ?>" step="1">
           </td>
         </tr>
-        <tr valign="top">
-          <th scope="row">Evaluation Field #2</th>
-          <td>
-            <input type="range" required name="evaluation[evaluation_field_2]"  min="1" max="5" value="<?php echo @$evaluation->evaluation_field_2; ?>" step="1">
-          </td>
-        </tr>
-        <tr valign="top">
-          <th scope="row">Evaluation Field #3</th>
-          <td>
-            <input type="range" required name="evaluation[evaluation_field_3]"  min="1" max="5" value="<?php echo @$evaluation->evaluation_field_3; ?>" step="1">
-          </td>
-        </tr>
-        <tr valign="top">
-          <th scope="row">Evaluation Field #4</th>
-          <td>
-            <input type="range" required name="evaluation[evaluation_field_4]"  min="1" max="5" value="<?php echo @$evaluation->evaluation_field_4; ?>" step="1">
-          </td>
-        </tr>
-        <tr valign="top">
-          <th scope="row">Evaluation Field #5</th>
-          <td>
-            <input type="range" required name="evaluation[evaluation_field_5]"  min="1" max="5" value="<?php echo @$evaluation->evaluation_field_5; ?>" step="1">
-          </td>
-        </tr>
+
+        <?php endif; } ?>
+        
         <tr valign="top">
           <th scope="row">Confirmed?</th>
           <td>

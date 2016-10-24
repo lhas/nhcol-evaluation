@@ -4,7 +4,6 @@ A plugin for evaluations in WordPress.
 
 ## Next Steps
 
-* Add `Edit` function to evaluations
 * Check if `Confirm?` enabled on helper, then send a e-mail requesting to confirm the evaluation 
 
 ## Shortcodes
