@@ -57,9 +57,11 @@
   margin-bottom: 20px;
 }
 .nhcol-evaluation-input .button:hover,
-.nhcol-evaluation-input .button {
+.nhcol-evaluation-input .button,
+.evaluation-pagination a,
+.evaluation-pagination span.current {
   font-family: 'Philosopher',sans-serif;
-    color: #FFF;
+    color: #333;
     font-weight: 400;
     padding: 0.375rem 1.75rem 0.5rem;
     display: inline-block;
@@ -96,4 +98,40 @@
   height: 100%;
   background: #FFF;
   opacity: 0.3;
+}
+.nhcol-evaluation-single {
+  padding: 5px;
+  border: 1px solid #dfdfdf;
+  border-radius: 5px;
+  margin-top: 1.25rem;
+}
+.nhcol-evaluation-single h5 {
+  display: inline-block;
+  padding: 0px;
+  margin: 10px !important;
+}
+.nhcol-evaluation-single h5 i.fa {
+  color: #fdd835;
+}
+.nhcol-evaluation-single h5 a {
+  text-decoration: none;
+  border: none;
+  box-shadow: none;
+  color: #202020;
+}
+.nhcol-evaluation-single .comment {
+  margin: 10px;
+}
+.nhcol-evaluation-single time {
+  float: right;
+  color: #9f9f9f;
+  font-size: 11px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.nhcol-evaluation-single .clearfix {
+  clear: both;
+}
+.evaluation-pagination {
+  margin-top: 20px;
 }

@@ -84,7 +84,7 @@ class Nhcol_Evaluation_Public {
 		add_shortcode('nhcol-evaluation-badge', array($this, 'badge_shortcode') );
 		add_shortcode('nhcol-evaluation-input', array($this, 'input_shortcode') );
 		add_shortcode('nhcol-evaluation-output-average', array($this, 'output_average_shortcode') );
-		add_shortcode('nhcol-evaluation-output', array($this, 'output_shortcode') );
+		add_shortcode('nhcol-evaluation-output-pagination', array($this, 'output_pagination_shortcode') );
 
 		add_action('wp_head', array($this, 'validate_evaluation_confirm') );
 		add_action('wp_footer', array($this, 'add_badge_to_website') );
@@ -279,6 +279,47 @@ class Nhcol_Evaluation_Public {
 
 		ob_start();
 		include('partials/shortcodes/output/average.php');
+		return ob_get_clean();
+	}
+
+	/**
+	 * Output Pagination shortcode.
+	 *
+	 * You can use it as: [nhcol-evaluation-output-pagination]
+	 * It generates the output data.
+	 */
+	public function output_pagination_shortcode() {
+		global $wpdb;
+
+		// get all evaluations confirmed
+		$table_name = $wpdb->prefix . 'nhcol_evaluation';
+		$query = "SELECT * FROM $table_name WHERE confirmed = '1'";
+		$total_query = "SELECT COUNT(1) FROM (${query}) AS combined_table";
+		$total = $wpdb->get_var( $total_query );
+		$items_per_page = 2;
+		$page = isset( $_GET['cpage'] ) ? abs( (int) $_GET['cpage'] ) : 1;
+		$offset = ( $page * $items_per_page ) - $items_per_page;
+		$latest_evaluations = $wpdb->get_results( $query . " ORDER BY id DESC LIMIT ${offset}, ${items_per_page}" );
+
+		foreach($latest_evaluations as $evaluation) :
+			$evaluation->average = 0;
+			$n = 0;
+
+			for($i = 1; $i <= 5; $i++) {
+				$attribute = 'evaluation_field_' . $i;
+
+				if(!empty($evaluation->$attribute)) {
+					$evaluation->average += $evaluation->$attribute;
+					$n += 1;
+				}
+			}
+
+			$evaluation->average = round($evaluation->average / $n, 2);
+			$evaluation->average_translate = $this->plugin_options['translates'][$evaluation->average]['name'];
+		endforeach;
+
+		ob_start();
+		include('partials/shortcodes/output/pagination.php');
 		return ob_get_clean();
 	}
 
