@@ -51,6 +51,25 @@ class Nhcol_Evaluation_Activator {
 			PRIMARY KEY  (id)
 		) $charset_collate;";
 
+		$option = 'nhcol-evaluation';
+		$value = array(
+			'company_name' => 'NHCOL',
+			'evaluation_question' => 'Say to us your opinion about our company!',
+			'evaluate_url' => 'http://localhost/wordpress/evaluate-us/',
+			'maximum_evaluations_per_page' => 5,
+			'first_block_text' => 'Lorem ipsum dolor sit amet',
+			'second_block_text' => 'Lorem ipsum dolor sit amet',
+			'evaluation_label_1' => 'Product Quality',
+			'evaluation_label_2' => 'Delivery',
+			'evaluation_label_3' => 'Stock Availability',
+			'evaluation_label_4' => '',
+			'evaluation_label_5' => '',
+			'button_background' => '#2226f9',
+			'button_text' => '#3afcfc',
+			'badge_position' => 'middle',
+		);
+		add_option( $option, $value );
+
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 		dbDelta( $sql );
 	}
