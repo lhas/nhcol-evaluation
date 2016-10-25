@@ -33,6 +33,7 @@ class Evaluation_List_Table extends WP_List_Table {
   function get_sortable_columns() {
     $sortable_columns = array(
       'email'  => array('email',false),
+      'confirmed'  => array('confirmed',false),
       'comment' => array('comment',false),
       'order_number'   => array('order_number',false),
       'evaluation_field_1'   => array('evaluation_field_1',false),

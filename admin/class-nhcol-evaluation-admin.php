@@ -73,12 +73,9 @@ class Nhcol_Evaluation_Admin {
      * class.
      */
 
-    if ( 'settings_page_nhcol-evaluation' == get_current_screen() -> id ) {
       // CSS stylesheet for Color Picker
       wp_enqueue_style( 'wp-color-picker' );
       wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/nhcol-evaluation-admin.css', array( 'wp-color-picker' ), $this->version, 'all' );
-    }
-
   }
 
   /**
@@ -100,11 +97,8 @@ class Nhcol_Evaluation_Admin {
      * class.
      */
 
-    if ( 'settings_page_nhcol-evaluation' == get_current_screen() -> id ) {
       wp_enqueue_media();
       wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/nhcol-evaluation-admin.js', array( 'jquery', 'wp-color-picker', 'media-upload' ), $this->version, false );
-    }
-
 
   }
 
@@ -171,6 +165,7 @@ class Nhcol_Evaluation_Admin {
     $valid['company_name'] = (isset($input['company_name']) && !empty($input['company_name'])) ? $input['company_name'] : null;
 
     $valid['evaluation_question'] = (isset($input['evaluation_question']) && !empty($input['evaluation_question'])) ? $input['evaluation_question'] : null;
+    $valid['evaluate_url'] = (isset($input['evaluate_url']) && !empty($input['evaluate_url'])) ? $input['evaluate_url'] : null;
 
     $valid['evaluation_label_1'] = (isset($input['evaluation_label_1']) && !empty($input['evaluation_label_1'])) ? $input['evaluation_label_1'] : null;
     $valid['evaluation_label_2'] = (isset($input['evaluation_label_2']) && !empty($input['evaluation_label_2'])) ? $input['evaluation_label_2'] : null;
@@ -207,6 +202,9 @@ class Nhcol_Evaluation_Admin {
 
     // Company Logo id
     $valid['company_logo_id'] = (isset($input['company_logo_id']) && !empty($input['company_logo_id'])) ? absint($input['company_logo_id']) : 0;
+
+    // Seal Logo
+    $valid['seal_logo_id'] = (isset($input['seal_logo_id']) && !empty($input['seal_logo_id'])) ? absint($input['seal_logo_id']) : 0;
 
     
     return $valid;

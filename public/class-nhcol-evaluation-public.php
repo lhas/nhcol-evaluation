@@ -59,9 +59,31 @@ class Nhcol_Evaluation_Public {
 		$this->version = $version;
 		$this->plugin_options = get_option($this->plugin_name);
 
+		// translates
+		$this->plugin_options['translates'] = array(
+			array('name' => __('Not rated', $this->plugin_name) ),
+			array('name' => __('Deficiente', $this->plugin_name) ),
+			array('name' => __('Suficientemente', $this->plugin_name) ),
+			array('name' => __('Satisfatório', $this->plugin_name) ),
+			array('name' => __('Bom', $this->plugin_name) ),
+			array('name' => __('Excelente', $this->plugin_name) ),
+		);
+
+		// labels
+		$this->plugin_options['labels'] = array();
+
+		for($i = 1; $i <= 5; $i++) :
+			if(!empty($this->plugin_options['evaluation_label_' . $i])) :
+					$this->plugin_options['labels'][] = array(
+							'name' => $this->plugin_options['evaluation_label_' . $i]
+					);
+			endif;
+		endfor;
+
 		// Shortcodes
 		add_shortcode('nhcol-evaluation-badge', array($this, 'badge_shortcode') );
 		add_shortcode('nhcol-evaluation-input', array($this, 'input_shortcode') );
+		add_shortcode('nhcol-evaluation-output-average', array($this, 'output_average_shortcode') );
 		add_shortcode('nhcol-evaluation-output', array($this, 'output_shortcode') );
 
 		add_action('wp_head', array($this, 'validate_evaluation_confirm') );
@@ -200,28 +222,6 @@ class Nhcol_Evaluation_Public {
 	 * It generates the input form.
 	 */
 	public function input_shortcode() {
-
-		$this->plugin_options['labels'] = array();
-
-		// labels
-		for($i = 1; $i <= 5; $i++) :
-			if(!empty($this->plugin_options['evaluation_label_' . $i])) :
-					$this->plugin_options['labels'][] = array(
-							'name' => $this->plugin_options['evaluation_label_' . $i]
-					);
-			endif;
-		endfor;
-
-		// translates
-		$this->plugin_options['translates'] = array(
-			array('name' => __('Not rated', $this->plugin_name) ),
-			array('name' => __('Deficiente', $this->plugin_name) ),
-			array('name' => __('Suficientemente', $this->plugin_name) ),
-			array('name' => __('Satisfatório', $this->plugin_name) ),
-			array('name' => __('Bom', $this->plugin_name) ),
-			array('name' => __('Excelente', $this->plugin_name) ),
-		);
-		
 		$this->plugin_options['admin_ajax'] = admin_url('admin-ajax.php');
 
 		ob_start();
@@ -232,11 +232,53 @@ class Nhcol_Evaluation_Public {
 	/**
 	 * Output shortcode.
 	 *
-	 * You can use it as: [nhcol-evaluation-output]
+	 * You can use it as: [nhcol-evaluation-output-average]
 	 * It generates the output data.
 	 */
-	public function output_shortcode() {
-		return 'ae';
+	public function output_average_shortcode() {
+		global $wpdb;
+
+		// get all evaluations confirmed
+		$table_name = $wpdb->prefix . 'nhcol_evaluation';
+		$evaluations = $wpdb->get_results( "SELECT * FROM $table_name WHERE confirmed = '1'" );
+
+		// evaluations count
+		$this->plugin_options['reviewCount'] = sizeof($evaluations);
+
+		// calc ratings for each field
+		$ratings = array(
+		);
+
+		foreach($evaluations as $evaluation) {
+			for($i = 1; $i <= 5; $i++) {
+				$attribute = "evaluation_field_" . $i;
+
+				if(!empty($evaluation->$attribute)) {
+					@$ratings[$i] += $evaluation->$attribute;
+				}
+			}
+		}
+
+		foreach($ratings as $index => $rating) {
+			$this->plugin_options['labels'][$index-1]['average'] = $rating / sizeof($evaluations);
+		}
+
+		$ratingValue = 0;
+
+		foreach($this->plugin_options['labels'] as $label) {
+			$ratingValue += $label['average'];
+		}
+
+		$this->plugin_options['ratingValue'] = round($ratingValue / sizeof($ratings), 2);
+		$this->plugin_options['ratingValueFormatted'] = $this->format_rating($this->plugin_options['ratingValue']);
+
+		ob_start();
+		include('partials/shortcodes/output/average.php');
+		return ob_get_clean();
+	}
+
+	public function format_rating($number) {
+		return number_format((float)$number, 1, ',', '');
 	}
 
 }

@@ -33,10 +33,7 @@
 
          // Let's set up some variables for the image upload and removing the image     
          var frame,
-             imgUploadButton = $( '#upload_company_logo_button' ),
-             imgContainer = $( '#upload_logo_preview' ),
-             imgIdInput = $( '#company_logo_id' ),
-             imgPreview = $('#upload_logo_preview'),
+             imgUploadButton = $( '.button_upload' ),
              imgDelButton = $('#nhcol_evaluation-delete_logo_button'),
              // Color Pickers Inputs
              colorPickerInputs = $( '.nhcol-evaluation-color-picker' );
@@ -46,20 +43,16 @@
 
         // wp.media add Image
          imgUploadButton.on( 'click', function( event ){
+
+           var element = $(this);
             
             event.preventDefault();
-            
-            // If the media frame already exists, reopen it.
-            if ( frame ) {
-              frame.open();
-              return;
-            }
             
             // Create a new media frame
             frame = wp.media({
               title: 'Select or Upload Media for your Login Logo',
               button: {
-                text: 'Use as my Login page Logo'
+                text: 'Use as Image'
               },
               multiple: false  // Set to true to allow multiple files to be selected
             });
@@ -67,7 +60,11 @@
             frame.on( 'select', function() {
               
               // Get media attachment details from the frame state
-              var attachment = frame.state().get('selection').first().toJSON();                
+              var attachment = frame.state().get('selection').first().toJSON();   
+              var imgPreview = $(element).parent().parent().find('.nhcol_evaluation-upload-preview');
+              var imgIdInput = $(element).parent().parent().find('.logo_id');
+
+              console.log($(element).parent().parent());
 
               // Send the attachment URL to our custom image input field.
               imgPreview.find( 'img' ).attr( 'src', attachment.sizes.full.url );
