@@ -2,3 +2,101 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+ .nhcol-evaluation-input .inline-heading {
+  display: inline-block;
+  padding: 0 0.75rem 0.75rem;
+  font-weight: 300;
+  border-bottom: 1px dashed #dfdfdf;
+  width: 100%;
+ }
+
+.nhcol-evaluation-input .user-input,
+.nhcol-evaluation-input .user-input td,
+.nhcol-evaluation-input .result,
+.nhcol-evaluation-input .result td {
+  border: none;
+}
+
+.nhcol-evaluation-input .rating a,
+.nhcol-evaluation-input .rating a:hover {
+  text-decoration: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: 0 !important;
+  color: #7cb342;
+}
+.nhcol-evaluation-input .rating a:hover {
+  opacity: 0.5;
+}
+.nhcol-evaluation-input .rating i {
+  font-size: 30px;
+}
+.nhcol-evaluation-input em {
+  display: block;
+  color: #777;
+}
+.nhcol-evaluation-input .reset {
+  text-decoration: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: 0 !important;
+  color: #888;
+}
+
+.nhcol-evaluation-input .full {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+.nhcol-evaluation-input .full label {
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+.nhcol-evaluation-input .full li {
+  margin-bottom: 20px;
+}
+.nhcol-evaluation-input .button {
+  font-family: 'Philosopher',sans-serif;
+    color: #FFF;
+    font-weight: 400;
+    padding: 0.375rem 1.75rem 0.5rem;
+    display: inline-block;
+    border: 0.0625rem solid #6b9e3f;
+    box-shadow: 0 0.0625rem 0.125rem 0.0625rem rgba(255,255,255,0.2) inset,0 0.0625rem 0 0 #5b9a3e;
+    text-shadow: 0 0.0625rem 0.0625rem rgba(20,20,20,0.7);
+    background: #6cb64a;
+    font-size: 18px;
+    font-size: 1.125rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-image: -webkit-linear-gradient( #8CD63F, #6cb64a);
+    background-image: linear-gradient( #8CD63F, #6cb64a);
+}
+.nhcol-evaluation-input textarea {
+  height: 150px;
+  font-size: 12px;
+}
+.nhcol-evaluation-input input[type="text"],
+.nhcol-evaluation-input input[type="email"] {
+  height: 35px;
+  font-size: 12px;
+}
+.nhcol-evaluation-input { 
+  position: relative;
+}
+.nhcol-evaluation-input .loading {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background: #FFF;
+  opacity: 0.3;
+}

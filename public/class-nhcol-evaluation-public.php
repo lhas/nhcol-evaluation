@@ -1,5 +1,7 @@
  <?php
 
+require_once plugin_dir_path( __FILE__ ) . "../admin/includes/helpers.php";
+
 /**
  * The public-facing functionality of the plugin.
  *
@@ -64,6 +66,27 @@ class Nhcol_Evaluation_Public {
 
 		add_action('wp_head', array($this, 'validate_evaluation_confirm') );
 
+		add_action( 'wp_ajax_submit_evaluation', array($this, 'submit_evaluation_callback') );
+		add_action( 'wp_ajax_nopriv_submit_evaluation', array($this, 'submit_evaluation_callback') );
+	}
+
+	public function submit_evaluation_callback() {
+		$evaluation = json_decode(urldecode(stripslashes($_REQUEST['evaluation'])), true);
+
+		$fields = $evaluation['fields'];
+
+		unset($evaluation['fields']);
+
+		foreach($fields as $index => $field) {
+			$subindex = $index+1;
+			$evaluation['evaluation_field_' . $subindex] = $field['value'];
+		}
+
+		wp_insert_evaluation($evaluation);
+
+		echo __('Evaluation submitted with success. You must confirm it on your email. Thank you!', $this->plugin_name);
+
+		wp_die();
 	}
 
 	/**
@@ -129,6 +152,7 @@ class Nhcol_Evaluation_Public {
 		 * class.
 		 */
 
+		wp_enqueue_style( 'fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', array(), $this->version, 'all' );
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/nhcol-evaluation-public.css', array(), $this->version, 'all' );
 
 	}
@@ -152,6 +176,7 @@ class Nhcol_Evaluation_Public {
 		 * class.
 		 */
 
+		wp_enqueue_script( 'angularjs', 'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js', array( ), $this->version, false );
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/nhcol-evaluation-public.js', array( 'jquery' ), $this->version, false );
 
 	}
@@ -175,6 +200,30 @@ class Nhcol_Evaluation_Public {
 	 * It generates the input form.
 	 */
 	public function input_shortcode() {
+
+		$this->plugin_options['labels'] = array();
+
+		// labels
+		for($i = 1; $i <= 5; $i++) :
+			if(!empty($this->plugin_options['evaluation_label_' . $i])) :
+					$this->plugin_options['labels'][] = array(
+							'name' => $this->plugin_options['evaluation_label_' . $i]
+					);
+			endif;
+		endfor;
+
+		// translates
+		$this->plugin_options['translates'] = array(
+			array('name' => __('Not rated', $this->plugin_name) ),
+			array('name' => __('Deficiente', $this->plugin_name) ),
+			array('name' => __('Suficientemente', $this->plugin_name) ),
+			array('name' => __('Satisfatório', $this->plugin_name) ),
+			array('name' => __('Bom', $this->plugin_name) ),
+			array('name' => __('Excelente', $this->plugin_name) ),
+		);
+		
+		$this->plugin_options['admin_ajax'] = admin_url('admin-ajax.php');
+
 		ob_start();
 		include('partials/shortcodes/input.php');
 		return ob_get_clean();

@@ -4,7 +4,6 @@ A plugin for evaluations in WordPress.
 
 ## Next Steps
 
-* Made Input form work as expected
 * Badges position configuration
 * Badges position fixed
 * Create Output Page and use shortcode inside it.

@@ -1,80 +1,79 @@
-<?php
-  $evaluation_question = $this->plugin_options['evaluation_question'];
-
-  $evaluation_label_1 = $this->plugin_options['evaluation_label_1'];
-  $evaluation_label_2 = $this->plugin_options['evaluation_label_2'];
-  $evaluation_label_3 = $this->plugin_options['evaluation_label_3'];
-  $evaluation_label_4 = $this->plugin_options['evaluation_label_4'];
-  $evaluation_label_5 = $this->plugin_options['evaluation_label_5'];
-?>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-
-<div class="content-left">
+<div ng-app="app" ng-init='plugin_options = <?php echo json_encode($this->plugin_options); ?>' ng-controller="EvaluationsCtrl as $ctrl" class="nhcol-evaluation-input content-left">
+  <span class="loading" ng-show="$ctrl.loading"></span>
   <article class="evaluate box content">
 
-      <h4 class="inline-heading"><?php echo $evaluation_question; ?></h4>
-      <form method="post" class="form">
+      <h4 class="inline-heading">{{plugin_options.evaluation_question}}</h4>
+
+      <form name="myForm" ng-submit="$ctrl.submit($ctrl.evaluation, plugin_options.admin_ajax)" method="post" class="form">
+
           <table class="user-input">
               <tbody>
-              <?php for($i = 1; $i <= 5; $i++) : if(!empty($this->plugin_options['evaluation_label_' . $i])) : ?>
-              <tr>
-                  <td class="result-wrapper"><?php echo $this->plugin_options['evaluation_label_' . $i]; ?></td>
-                  <td class="reset-wrapper"><a class="reset fa fa-times" href="#" data-reset="rating-1"></a></td>
+              <tr ng-repeat="(index, label) in plugin_options.labels">
+                  <td class="result-wrapper">
+                    {{label.name}}
+                    <em ng-if="!$ctrl.evaluation.fields[index]">
+                        {{plugin_options.translates[0].name}}
+                    </em>
+                    <em ng-if="$ctrl.evaluation.fields[index]">
+                        {{plugin_options.translates[$ctrl.evaluation.fields[index].value].name}}
+                    </em>
+                  </td>
+                  <td class="reset-wrapper">
+                    <a class="reset fa fa-times" href="javascript:void(0);" ng-click="$ctrl.removeAnswer(index)" ng-if="$ctrl.evaluation.fields[index]"></a>
+                  </td>
                   <td class="rating-wrapper">
-                      <span class="rating" data-rating="rating-1">
-                          <a href="#" data-rating="1">
-                            <i class="fa fa-star"></i>
+                      <span class="rating">
+                          <a href="javascript:void(0);" ng-click="$ctrl.chooseAnswer(1, label, index)">
+                            <i class="fa" ng-class="{'fa-star-o': !$ctrl.evaluation.fields[index] || $ctrl.evaluation.fields[index].value < 1, 'fa-star': $ctrl.evaluation.fields[index].value >= 1}"></i>
                           </a>
-                          <a href="#" data-rating="2">
-                            <i class="fa fa-star"></i></a>
-                          <a href="#" data-rating="3">
-                            <i class="fa fa-star"></i></a>
-                          <a href="#" data-rating="4">
-                            <i class="fa fa-star"></i></a>
-                          <a href="#" data-rating="5">
-                            <i class="fa fa-star"></i></a>
-                          <span style="width: 0%;"></span>
-                          <input class="rating-1" type="hidden" value="0" name="r1">
+                      </span>
+                      <span class="rating">
+                          <a href="javascript:void(0);" ng-click="$ctrl.chooseAnswer(2, label, index)">
+                            <i class="fa" ng-class="{'fa-star-o': !$ctrl.evaluation.fields[index] || $ctrl.evaluation.fields[index].value < 2, 'fa-star': $ctrl.evaluation.fields[index].value >= 2}"></i>
+                          </a>
+                      </span>
+                      <span class="rating">
+                          <a href="javascript:void(0);" ng-click="$ctrl.chooseAnswer(3, label, index)">
+                            <i class="fa" ng-class="{'fa-star-o': !$ctrl.evaluation.fields[index] || $ctrl.evaluation.fields[index].value < 3, 'fa-star': $ctrl.evaluation.fields[index].value >= 3}"></i>
+                          </a>
+                      </span>
+                      <span class="rating">
+                          <a href="javascript:void(0);" ng-click="$ctrl.chooseAnswer(4, label, index)">
+                            <i class="fa" ng-class="{'fa-star-o': !$ctrl.evaluation.fields[index] || $ctrl.evaluation.fields[index].value < 4, 'fa-star': $ctrl.evaluation.fields[index].value >= 4}"></i>
+                          </a>
+                      </span>
+                      <span class="rating">
+                          <a href="javascript:void(0);" ng-click="$ctrl.chooseAnswer(5, label, index)">
+                            <i class="fa" ng-class="{'fa-star-o': !$ctrl.evaluation.fields[index] || $ctrl.evaluation.fields[index].value < 5, 'fa-star': $ctrl.evaluation.fields[index].value >= 5}"></i>
+                          </a>
                       </span>
                   </td>
               </tr>
-              <?php endif; endfor; ?>
           </tbody></table>
 
           <table class="result">
               <tbody><tr>
-                  <td><strong>&nbsp;</strong></td>
-                  <td><strong class="number">0</strong><span class="number"> from 3 labels</span></td>
+                  <td><strong><?php echo __('Total', $this->plugin_name); ?></strong></td>
+                  <td ng-if="$ctrl.lastField.value"><strong class="number">{{$ctrl.lastField.value}}</strong><span class="number"> <?php echo __('from 5 stars', $this->plugin_name); ?></span></td>
               </tr>
           </tbody></table>
 
           <ul class="full">
               <li>
-                  <label for="textarea">Evaluation Comment:</label>
-                  <textarea id="textarea" name="kommentar"></textarea>
-                  <small id="charNum" style="float: right">max length 500 characters</small>
+                  <label for="textarea"><?php echo __('Evaluation Comment', $this->plugin_name); ?></label>
+                  <textarea id="textarea" ng-model="$ctrl.evaluation.comment" maxlength-it maxlength="500"></textarea>
+                  <small id="charNum" style="float: right"><?php echo __('max length 500 characters.', $this->plugin_name); ?> {{$ctrl.evaluation.comment.length}}</small>
               </li>
-              <script>
-                  function testchars(elem) {
-                      var char = 500 - elem.val().length;
-                      $('#charNum').text('Noch '+ char + ' Zeichen');
-                  }
-                  $('#textarea').bind("input propertychange", function (e) {
-                      testchars($(this));
-                  });
-                  $(function() { testchars($('#textarea'))});
-              </script>
-              <li class="required" title="Required">
-                  <label for="input_0">Evaluation Email:</label>
-                  <input id="input_0" type="email" name="email" value="">
+              <li>
+                  <label for="input_0"><?php echo __('Evaluation Email', $this->plugin_name); ?> <span>*</span></label>
+                  <input id="input_0" type="email" required ng-model="$ctrl.evaluation.email">
               </li>
-              <li class="required" title="Required">
-                  <label for="input_1">Order Code:</label>
-                  <input id="input_1" type="text" name="bestellnr" value="">
+              <li>
+                  <label for="input_1"><?php echo __('Order Number', $this->plugin_name); ?>: <span>*</span></label>
+                  <input id="input_1" type="text" required ng-model="$ctrl.evaluation.order_number">
               </li>
 
-              <li><button type="submit" class="button arr">Send</button></li>
+              <li><button type="submit" class="button arr" ng-disabled="$ctrl.evaluation.fields.length != plugin_options.labels.length">Send</button></li>
           </ul>
       </form>
 
