@@ -1,5 +1,5 @@
 <div class="wrap">
-  <h1><?php echo _e('Edit Evaluation</h1>
+  <h1><?php echo _e('Edit Evaluation', $this->plugin_name); ?></h1>
 
   <form method="post" action="">
 
@@ -7,17 +7,17 @@
   
     <table class="form-table">
         <tr valign="top">
-          <th scope="row"><?php echo _e('Email</th>
+          <th scope="row"><?php echo _e('Email', $this->plugin_name); ?></th>
           <td><input type="email" required name="evaluation[email]" class="regular-text" value="<?php echo @$evaluation->email; ?>" /></td>
         </tr>
         <tr valign="top">
-          <th scope="row"><?php echo _e('Comment</th>
+          <th scope="row"><?php echo _e('Comment', $this->plugin_name); ?></th>
           <td>
             <textarea name="evaluation[comment]" required class="regular-text" id="" cols="30" rows="10"><?php echo @$evaluation->comment; ?></textarea>
           </td>
         </tr>
         <tr valign="top">
-          <th scope="row"><?php echo _e('Order Number</th>
+          <th scope="row"><?php echo _e('Order Number', $this->plugin_name); ?></th>
           <td><input type="text" required name="evaluation[order_number]" class="regular-text" value="<?php echo @$evaluation->order_number; ?>" /></td>
         </tr>
 
