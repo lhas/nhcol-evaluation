@@ -35,6 +35,7 @@
 
         $button_background = @$options['button_background'];
         $button_text = @$options['button_text'];
+        $badge_position = @$options['badge_position'];
 
         $company_logo_id = @$options['company_logo_id'];
         $company_logo = wp_get_attachment_image_src( $company_logo_id, 'thumbnail' );
@@ -45,6 +46,10 @@
         $seal_logo_url = $seal_logo[0];
 
         $evaluate_url = @$options['evaluate_url'];
+        $first_block_text = @$options['first_block_text'];
+        $second_block_text = @$options['second_block_text'];
+
+        $maximum_evaluations_per_page = @$options['maximum_evaluations_per_page'];
 
         if( isset( $_GET[ 'tab' ] ) ) {
             $active_tab = $_GET[ 'tab' ];

@@ -79,3 +79,10 @@
 
   </article>
 </div>
+
+<style type="text/css">
+    .button.arr {
+        background: <?php echo $this->plugin_options['button_background']; ?>;
+        color: <?php echo $this->plugin_options['button_text']; ?>;
+    }
+</style>

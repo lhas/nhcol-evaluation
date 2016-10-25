@@ -167,6 +167,11 @@ class Nhcol_Evaluation_Admin {
     $valid['evaluation_question'] = (isset($input['evaluation_question']) && !empty($input['evaluation_question'])) ? $input['evaluation_question'] : null;
     $valid['evaluate_url'] = (isset($input['evaluate_url']) && !empty($input['evaluate_url'])) ? $input['evaluate_url'] : null;
 
+    $valid['maximum_evaluations_per_page'] = (isset($input['maximum_evaluations_per_page']) && !empty($input['maximum_evaluations_per_page'])) ? $input['maximum_evaluations_per_page'] : null;
+    
+    $valid['first_block_text'] = (isset($input['first_block_text']) && !empty($input['first_block_text'])) ? $input['first_block_text'] : null;
+    $valid['second_block_text'] = (isset($input['second_block_text']) && !empty($input['second_block_text'])) ? $input['second_block_text'] : null;
+
     $valid['evaluation_label_1'] = (isset($input['evaluation_label_1']) && !empty($input['evaluation_label_1'])) ? $input['evaluation_label_1'] : null;
     $valid['evaluation_label_2'] = (isset($input['evaluation_label_2']) && !empty($input['evaluation_label_2'])) ? $input['evaluation_label_2'] : null;
     $valid['evaluation_label_3'] = (isset($input['evaluation_label_3']) && !empty($input['evaluation_label_3'])) ? $input['evaluation_label_3'] : null;
@@ -175,6 +180,7 @@ class Nhcol_Evaluation_Admin {
 
     $valid['button_background'] = (isset($input['button_background']) && !empty($input['button_background'])) ? $input['button_background'] : null;
     $valid['button_text'] = (isset($input['button_text']) && !empty($input['button_text'])) ? $input['button_text'] : null;
+    $valid['badge_position'] = (isset($input['badge_position']) && !empty($input['badge_position'])) ? $input['badge_position'] : null;
 
     //First Color Picker
     $valid['button_background'] = (isset($input['button_background']) && !empty($input['button_background'])) ? sanitize_text_field($input['button_background']) : '';
