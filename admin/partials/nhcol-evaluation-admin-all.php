@@ -1,16 +1,16 @@
 <div class="wrap">
 
-    <h2>All Evaluations</h2>
+    <h2><?php echo _e('All Evaluations', $this->plugin_name); ?></h2>
 
 <?php if(!empty($_REQUEST['action']) && $_REQUEST['action'] == 'delete') : ?>
 <div class="updated notice">
-    <p>Evaluations deleted.</p>
+    <p><?php echo _e('Evaluations deleted.', $this->plugin_name); ?></p>
 </div>
 <?php endif; ?>
 
 <?php if(!empty($_GET['notice']) && $_GET['notice'] == 'evaluation_added') : ?>
     <div id="message" class="notice notice-success is-dismissible">
-        <p>Evaluation added with success!</p>
+        <p><?php echo _e('Evaluation added with success!', $this->plugin_name); ?></p>
     </div>
 <?php endif; ?>
 

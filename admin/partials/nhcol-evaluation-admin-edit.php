@@ -1,5 +1,5 @@
 <div class="wrap">
-  <h1>Edit Evaluation</h1>
+  <h1><?php echo _e('Edit Evaluation</h1>
 
   <form method="post" action="">
 
@@ -7,17 +7,17 @@
   
     <table class="form-table">
         <tr valign="top">
-          <th scope="row">Email</th>
+          <th scope="row"><?php echo _e('Email</th>
           <td><input type="email" required name="evaluation[email]" class="regular-text" value="<?php echo @$evaluation->email; ?>" /></td>
         </tr>
         <tr valign="top">
-          <th scope="row">Comment</th>
+          <th scope="row"><?php echo _e('Comment</th>
           <td>
             <textarea name="evaluation[comment]" required class="regular-text" id="" cols="30" rows="10"><?php echo @$evaluation->comment; ?></textarea>
           </td>
         </tr>
         <tr valign="top">
-          <th scope="row">Order Number</th>
+          <th scope="row"><?php echo _e('Order Number</th>
           <td><input type="text" required name="evaluation[order_number]" class="regular-text" value="<?php echo @$evaluation->order_number; ?>" /></td>
         </tr>
 
@@ -41,7 +41,7 @@
         <?php endif; } ?>
         
         <tr valign="top">
-          <th scope="row">Confirmed?</th>
+          <th scope="row"><?php echo _e('Confirmed?', $this->plugin_name); ?></th>
           <td>
             <input type="hidden" name="evaluation[confirmed]" value="0" />
             <input type="checkbox" name="evaluation[confirmed]" value="1" <?php if(@$evaluation->confirmed) : ?>checked="checked"<?php endif; ?> />
@@ -50,6 +50,6 @@
     </table>
 
     <?php wp_nonce_field( 'nhcol_evaluation' ); ?>
-    <?php submit_button( __( 'Edit Evaluation', 'nhcol_evaluation' ), 'primary', 'submit_evaluation' ); ?>
+    <?php submit_button( __( 'Edit Evaluation', $this->plugin_name ), 'primary', 'submit_evaluation' ); ?>
 </form>
 </div>

@@ -50,7 +50,7 @@
             
             // Create a new media frame
             frame = wp.media({
-              title: 'Select or Upload Media for your Login Logo',
+              title: 'Select or Upload Media',
               button: {
                 text: 'Use as Image'
               },

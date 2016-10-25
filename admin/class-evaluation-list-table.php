@@ -6,15 +6,16 @@ if( ! class_exists( 'WP_List_Table' ) ) {
 
 class Evaluation_List_Table extends WP_List_Table {
   public static $table_name = "nhcol_evaluation";
+  public static $plugin_name = "nhcol-evaluation";
 
   function get_columns(){
 
     $columns = array(
       'cb'        => '<input type="checkbox" />',
-      'confirmed' => 'Confirmed?',
-      'email' => 'Email',
-      'comment'    => 'Comment',
-      'order_number'      => 'Order N.',
+      'confirmed' => __('Confirmed?', self::$plugin_name),
+      'email' => __('Email', self::$plugin_name),
+      'comment'    => __('Comment', self::$plugin_name),
+      'order_number'      => __('Order N.', self::$plugin_name),
     );
 
     $plugin_options = get_option('nhcol-evaluation');

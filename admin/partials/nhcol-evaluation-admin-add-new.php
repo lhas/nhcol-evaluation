@@ -1,21 +1,21 @@
 <div class="wrap">
-  <h1>Add New Evaluation</h1>
+  <h1><?php echo _e('Add New Evaluation', $this->plugin_name); ?></h1>
 
   <form method="post" action="">
   
     <table class="form-table">
         <tr valign="top">
-          <th scope="row">Email</th>
+          <th scope="row"><?php echo _e('Email', $this->plugin_name); ?></th>
           <td><input type="email" required name="evaluation[email]" class="regular-text" value="" /></td>
         </tr>
         <tr valign="top">
-          <th scope="row">Comment</th>
+          <th scope="row"><?php echo _e('Comment', $this->plugin_name); ?></th>
           <td>
             <textarea name="evaluation[comment]" required class="regular-text" id="" cols="30" rows="10"></textarea>
           </td>
         </tr>
         <tr valign="top">
-          <th scope="row">Order Number</th>
+          <th scope="row"><?php echo _e('Order Number', $this->plugin_name); ?></th>
           <td><input type="text" required name="evaluation[order_number]" class="regular-text" value="" /></td>
         </tr>
 
@@ -39,7 +39,7 @@
         <?php endif; } ?>
 
         <tr valign="top">
-          <th scope="row">Confirmed?</th>
+          <th scope="row"><?php echo _e('Confirmed?', $this->plugin_name); ?></th>
           <td>
             <input type="hidden" name="evaluation[confirmed]" value="0" />
             <input type="checkbox" name="evaluation[confirmed]" value="1" />
