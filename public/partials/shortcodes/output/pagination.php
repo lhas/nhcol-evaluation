@@ -1,4 +1,4 @@
-<h5><?php echo $items_per_page; ?> <?php echo __('from', $this->plugin_name); ?> <?php echo $total; ?> <?php echo __('evaluations', $this->plugin_name); ?> </h5>
+<h5><?php echo $total; ?> <?php echo __('evaluations', $this->plugin_name); ?> </h5>
 
 <?php foreach($latest_evaluations as $evaluation) : ?>
 <article class="nhcol-evaluation-single" itemprop="review" itemscope="" itemtype="https://schema.org/Review">
@@ -27,7 +27,7 @@
     <?php echo $evaluation->comment; ?>
   </p>
   
-  <time itemprop="datePublished" datetime="2016-10-23"><?php echo $evaluation->time; ?></time>
+  <time itemprop="datePublished" datetime="2016-10-23"><?php $dateTime = new \DateTime($evaluation->time); echo $dateTime->format('d.m.Y'); ?></time>
 
   <div class="clearfix"></div>
 

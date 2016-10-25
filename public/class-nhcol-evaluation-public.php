@@ -297,6 +297,11 @@ class Nhcol_Evaluation_Public {
 		$total_query = "SELECT COUNT(1) FROM (${query}) AS combined_table";
 		$total = $wpdb->get_var( $total_query );
 		$items_per_page = 2;
+
+		if(!empty($this->plugin_options['maximum_evaluations_per_page'])) {
+			$items_per_page = $this->plugin_options['maximum_evaluations_per_page'];
+		}
+		
 		$page = isset( $_GET['cpage'] ) ? abs( (int) $_GET['cpage'] ) : 1;
 		$offset = ( $page * $items_per_page ) - $items_per_page;
 		$latest_evaluations = $wpdb->get_results( $query . " ORDER BY id DESC LIMIT ${offset}, ${items_per_page}" );

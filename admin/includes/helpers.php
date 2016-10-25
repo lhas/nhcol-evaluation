@@ -18,8 +18,7 @@ function wp_insert_evaluation( $args = array() ) {
         'evaluation_field_3' => '',
         'evaluation_field_4' => '',
         'evaluation_field_5' => '',
-        'confirmed' => '0',
-
+        'confirmed' => '0'
     );
 
     $args       = wp_parse_args( $args, $defaults );
@@ -30,8 +29,7 @@ function wp_insert_evaluation( $args = array() ) {
     unset( $args['id'] );
 
     if ( ! $row_id ) {
-
-        
+        $args['time'] = current_time('mysql', 1);
 
         // insert a new
         if ( $wpdb->insert( $table_name, $args ) ) {
