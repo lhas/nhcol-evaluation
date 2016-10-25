@@ -68,6 +68,7 @@ class Nhcol_Evaluation_Activator {
 			'button_text' => '#3afcfc',
 			'badge_position' => 'middle',
 		);
+		get_option($option);
 		add_option( $option, $value );
 
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
