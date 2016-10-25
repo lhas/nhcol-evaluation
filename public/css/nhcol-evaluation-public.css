@@ -56,6 +56,7 @@
 .nhcol-evaluation-input .full li {
   margin-bottom: 20px;
 }
+.nhcol-evaluation-input .button:hover,
 .nhcol-evaluation-input .button {
   font-family: 'Philosopher',sans-serif;
     color: #FFF;
@@ -78,6 +79,7 @@
     border-bottom-right-radius: 5px;
     background-image: -webkit-linear-gradient( #8CD63F, #6cb64a);
     background-image: linear-gradient( #8CD63F, #6cb64a);
+    outline: 0;
 }
 .nhcol-evaluation-input textarea {
   height: 150px;
