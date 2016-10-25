@@ -73,7 +73,7 @@
                   <input id="input_1" type="text" required ng-model="$ctrl.evaluation.order_number">
               </li>
 
-              <li><button type="submit" class="button arr" ng-disabled="$ctrl.evaluation.fields.length != plugin_options.labels.length">Send</button></li>
+              <li><button type="submit" class="button arr" ng-disabled="$ctrl.evaluation.fields.length != plugin_options.labels.length"><?php echo __('Send', $this->plugin_name); ?></button></li>
           </ul>
       </form>
 
