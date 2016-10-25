@@ -87,6 +87,7 @@ class Nhcol_Evaluation_Public {
 		add_shortcode('nhcol-evaluation-output', array($this, 'output_shortcode') );
 
 		add_action('wp_head', array($this, 'validate_evaluation_confirm') );
+		add_action('wp_footer', array($this, 'add_badge_to_website') );
 
 		add_action( 'wp_ajax_submit_evaluation', array($this, 'submit_evaluation_callback') );
 		add_action( 'wp_ajax_nopriv_submit_evaluation', array($this, 'submit_evaluation_callback') );
@@ -109,6 +110,10 @@ class Nhcol_Evaluation_Public {
 		echo __('Evaluation submitted with success. You must confirm it on your email. Thank you!', $this->plugin_name);
 
 		wp_die();
+	}
+
+	public function add_badge_to_website() {
+		include('partials/shortcodes/badge.php');
 	}
 
 	/**
