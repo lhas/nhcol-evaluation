@@ -2,9 +2,11 @@
   <span class="loading" ng-show="$ctrl.loading"></span>
   <article class="evaluate box content">
 
-      <h4 class="inline-heading">{{plugin_options.evaluation_question}}</h4>
+      <h3 class="inline-heading">{{plugin_options.evaluation_question}}</h3>
 
       <form name="myForm" ng-submit="$ctrl.submit($ctrl.evaluation, plugin_options.admin_ajax)" method="post" class="form">
+
+      <h4 class="inline-heading" style="border: none;"><?php echo $this->plugin_options['company_name']; ?></h4>
 
           <table class="user-input">
               <tbody>
@@ -58,6 +60,10 @@
               </tr>
           </tbody></table>
 
+        <p class="first-block-text block-text"><?php echo $this->plugin_options['first_block_text']; ?></p>
+        
+        <p class="second-block-text block-text"><?php echo $this->plugin_options['second_block_text']; ?></p>
+
           <ul class="full">
               <li>
                   <label for="textarea"><?php echo __('Evaluation Comment', $this->plugin_name); ?></label>
@@ -75,6 +81,14 @@
 
               <li><button type="submit" class="button arr" ng-disabled="$ctrl.evaluation.fields.length != plugin_options.labels.length"><?php echo __('Send', $this->plugin_name); ?></button></li>
           </ul>
+
+          <div class="evaluation-success" ng-show="$ctrl.status == 'success'">
+            <p><?php echo __('Evaluation submitted with success. You must confirm it on your email. Thank you!', $this->plugin_name); ?></p>
+          </div>
+
+          <div class="evaluation-error" ng-show="$ctrl.status == 'error'">
+            <p><?php echo __('Error while sending the evaluation. Try again later.', $this->plugin_name); ?></p>
+          </div>
       </form>
 
   </article>

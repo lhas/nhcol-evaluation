@@ -6,10 +6,10 @@
   <meta itemprop="author" content="mvg-ahk.de - Kunde">
 
   <h5 itemprop="reviewRating" itemscope="" itemtype="https://schema.org/Rating">
-    <meta itemprop="ratingValue" content="4">
+    <meta itemprop="ratingValue" content="<?php echo floor($evaluation->average); ?>">
     <meta itemprop="bestRating" content="5">
 
-    <a itemprop="url" href="/app/bewertung/R2bGyRl4S6eEWTtlKbrM">
+    <a itemprop="url" href="<?php echo $this->plugin_options['evaluate_url']; ?>">
       
       
       <?php for($i = 1; $i <= floor($evaluation->average); $i++) : ?>
@@ -26,8 +26,9 @@
   <p class="comment" itemprop="description">
     <?php echo $evaluation->comment; ?>
   </p>
-  
-  <time itemprop="datePublished" datetime="2016-10-23"><?php $dateTime = new \DateTime($evaluation->time); echo $dateTime->format('d.m.Y'); ?></time>
+
+  <?php $dateTime = new \DateTime($evaluation->time); ?>
+  <time itemprop="datePublished" datetime="<?php echo $dateTime->format('Y-m-d'); ?>"><?php echo $dateTime->format('d.m.Y'); ?></time>
 
   <div class="clearfix"></div>
 

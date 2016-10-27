@@ -14,6 +14,12 @@
               <strong class="number"><?php echo $this->plugin_options['ratingValueFormatted']; ?></strong><span class="number"> / 5,0</span>
           </h1>
 
+          <?php
+            $company_logo = wp_get_attachment_image_src($this->plugin_options['company_logo_id'], 'full')[0];
+          ?>
+
+          <img src="<?php echo $company_logo; ?>" style="height: 200px;" alt="">
+
           <table>
               <tbody>
               <?php foreach($this->plugin_options['labels'] as $index => $label) : ?>

@@ -107,13 +107,13 @@ class Nhcol_Evaluation_Public {
 
 		wp_insert_evaluation($evaluation);
 
-		echo __('Evaluation submitted with success. You must confirm it on your email. Thank you!', $this->plugin_name);
-
 		wp_die();
 	}
 
 	public function add_badge_to_website() {
-		include('partials/shortcodes/badge.php');
+		$this->output_average_shortcode();
+		
+		include('partials/badges/footer.php');
 	}
 
 	/**
@@ -273,8 +273,12 @@ class Nhcol_Evaluation_Public {
 		foreach($this->plugin_options['labels'] as $label) {
 			$ratingValue += $label['average'];
 		}
+		
+		if($ratingValue > 0 && sizeof($ratings) > 0) {
+			$ratingValue = round($ratingValue / sizeof($ratings), 2);
+		}
 
-		$this->plugin_options['ratingValue'] = round($ratingValue / sizeof($ratings), 2);
+		$this->plugin_options['ratingValue'] = $ratingValue;
 		$this->plugin_options['ratingValueFormatted'] = $this->format_rating($this->plugin_options['ratingValue']);
 
 		ob_start();

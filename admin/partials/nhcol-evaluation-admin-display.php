@@ -95,4 +95,27 @@
 
     </form>
 
+
+    <h3>Shortcodes</h3>
+
+    <fieldset>
+        <p><?php echo _e('Input Form', $this->plugin_name); ?></p>
+        <input type="text" disabled value="[nhcol-evaluation-input]" class="regular-text">
+    </fieldset>
+
+    <fieldset>
+        <p><?php echo _e('Output Average', $this->plugin_name); ?></p>
+        <input type="text" disabled value="[nhcol-evaluation-output-average]" class="regular-text">
+    </fieldset>
+
+    <fieldset>
+        <p><?php echo _e('Output Pagination', $this->plugin_name); ?></p>
+        <input type="text" disabled value="[nhcol-evaluation-output-pagination]" class="regular-text">
+    </fieldset>
+
+    <fieldset>
+        <p><?php echo _e('Badge', $this->plugin_name); ?></p>
+        <input type="text" disabled value="[nhcol-evaluation-badge]" class="regular-text">
+    </fieldset>
+
 </div>

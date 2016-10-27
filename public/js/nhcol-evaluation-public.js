@@ -66,6 +66,7 @@
       };
       var lastField = {};
       var loading = false;
+      var status = false;
       var vm = this;
 
       vm.evaluation = evaluation;
@@ -74,6 +75,7 @@
       vm.chooseAnswer = chooseAnswer;
       vm.removeAnswer = removeAnswer;
       vm.submit = submit;
+      vm.status = status;
 
       function submit(evaluation, ajaxurl) {
         var data = {
@@ -90,8 +92,7 @@
         }).then(success, error);
 
         function success(result) {
-          alert(result.data);
-          
+          vm.status = "success";
           vm.loading = false;
 
           vm.evaluation = {
@@ -99,6 +100,7 @@
           };
         }
         function error(result) {
+          vm.status = "error";
           vm.loading = false;
         }
       }
