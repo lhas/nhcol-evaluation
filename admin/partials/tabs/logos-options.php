@@ -5,7 +5,7 @@
         <input type="button" class="button button_upload" value="<?php _e( 'Upload Logo', $this->plugin_name); ?>" />
     </label>
     <div class="nhcol_evaluation-upload-preview <?php if(empty($company_logo_id)) echo 'hidden'?>">
-        <div style="display: inline-block; width: 200px; height: 200px; background: url(<?php echo $company_logo_url; ?>); background-size: cover !important;"></div>
+        <div style="display: inline-block; width: 250px; height: 250px; background: url(<?php echo $company_logo_url; ?>) no-repeat; "></div>
         <button id="nhcol_evaluation-delete_logo_button" style="display: inline-block; vertical-align: top;" class="nhcol_evaluation-delete-image">Remove</button>
     </div>
 </fieldset>
@@ -16,7 +16,7 @@
         <input type="button" class="button button_upload" value="<?php _e( 'Upload Logo', $this->plugin_name); ?>" />
     </label>
     <div class="nhcol_evaluation-upload-preview <?php if(empty($seal_logo_id)) echo 'hidden'?>">
-        <div style="display: inline-block; width: 200px; height: 200px; background: url(<?php echo $seal_logo_url; ?>); background-size: cover !important;"></div>
+        <div style="display: inline-block; width: 250px; height: 250px; background: url(<?php echo $seal_logo_url; ?>) no-repeat; "></div>
         <button id="nhcol_evaluation-delete_logo_button" style="display: inline-block; vertical-align: top;" class="nhcol_evaluation-delete-image">Remove</button>
     </div>
 </fieldset>

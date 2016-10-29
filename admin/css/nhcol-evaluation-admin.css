@@ -2,3 +2,7 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+ .nhcol_evaluation-upload-preview div {
+   border: 1px solid #000;
+   display: inline-block;
+ }

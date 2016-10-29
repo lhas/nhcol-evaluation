@@ -10,15 +10,15 @@
               <meta itemprop="bestRating" content="5">
 
               <span class="star-rating huge"><span style="width: 100%; background-size: 100%"></span></span><br>
-              <?php echo $this->plugin_options['translates'][$this->plugin_options['ratingValue']]['name']; ?><br>
+              <?php echo __($this->plugin_options['translates'][$this->plugin_options['ratingValue']]['name'], $this->plugin_name); ?><br>
               <strong class="number"><?php echo $this->plugin_options['ratingValueFormatted']; ?></strong><span class="number"> / 5,0</span>
           </h1>
 
           <?php
-            $company_logo = wp_get_attachment_image_src($this->plugin_options['company_logo_id'], 'full')[0];
+            $company_logo = wp_get_attachment_image_src($this->plugin_options['company_logo_id'], 'logo1')[0];
           ?>
 
-          <img src="<?php echo $company_logo; ?>" style="height: 200px;" alt="">
+          <img src="<?php echo $company_logo; ?>" style="margin-bottom: 10px;" alt="">
 
           <table>
               <tbody>
@@ -53,10 +53,6 @@
                   <td class="number"><strong><?php echo $this->plugin_options['ratingValueFormatted']; ?></strong></td>
               </tr>
           </tbody></table>
-
-          <figure>
-              <img src="<?php echo wp_get_attachment_image_src($this->plugin_options['seal_logo_id'], 'full')[0]; ?>" alt="">
-          </figure>
 
       </article>
     </section> <!-- .reviews -->

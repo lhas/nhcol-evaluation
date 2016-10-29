@@ -52,7 +52,15 @@ class Nhcol_Evaluation_Admin {
     $this->plugin_name = $plugin_name;
     $this->version = $version;
 
+    add_action( 'after_setup_theme',    array( $this, 'addFeaturedImageSupport' ), 11 );
   }
+
+
+    public function addFeaturedImageSupport()
+    {
+        add_image_size( 'logo1', 250, 250 );
+        add_image_size( 'logo2', 250, 250, true );
+    }
 
   /**
    * Register the stylesheets for the admin area.

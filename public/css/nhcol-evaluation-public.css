@@ -135,11 +135,12 @@
 .evaluation-pagination {
   margin-top: 20px;
 }
-
 #nhcol-evaluation-badge {
   position: fixed;
   right: 60px;
   z-index: 9999;
+}
+#nhcol-evaluation-badge a {
   text-align: center;
   color: #000;
 }
@@ -157,6 +158,29 @@
   margin: 0px;
   padding: 0px;
 }
+
+#nhcol-evaluation-badge2 {
+  display: inline-block;
+  text-decoration: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-align: center;
+  color: #000;
+}
+#nhcol-evaluation-badge2 .ratingvalue-name {
+  font-size: 12px;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 4px;
+} 
+#nhcol-evaluation-badge2 .rating-stars {
+  color: #fdd835;
+}
+#nhcol-evaluation-badge2 .ratingvalue-formatted {
+  font-size: 14px;
+  margin: 0px;
+  padding: 0px;
+}
 .evaluation-success {
   font-weight: bold;
   color: green;
@@ -164,4 +188,13 @@
 .evaluation-error {
   font-weight: bold;
   color: red;
+}
+.close-badge {
+  position: absolute;
+  right: -20px;
+  top: 50px;
+  z-index: 5;
+  font-weight: bold;
+  font-size: 17px;
+  cursor: pointer;
 }

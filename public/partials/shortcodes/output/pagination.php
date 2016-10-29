@@ -2,8 +2,8 @@
 
 <?php foreach($latest_evaluations as $evaluation) : ?>
 <article class="nhcol-evaluation-single" itemprop="review" itemscope="" itemtype="https://schema.org/Review">
-  <meta itemprop="name" content="MVG - Die Anhängerkupplung">
-  <meta itemprop="author" content="mvg-ahk.de - Kunde">
+  <meta itemprop="name" content="<?php echo get_bloginfo('name'); ?>">
+  <meta itemprop="author" content="<?php echo get_bloginfo('description'); ?>">
 
   <h5 itemprop="reviewRating" itemscope="" itemtype="https://schema.org/Rating">
     <meta itemprop="ratingValue" content="<?php echo floor($evaluation->average); ?>">

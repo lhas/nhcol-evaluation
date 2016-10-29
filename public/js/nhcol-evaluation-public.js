@@ -125,4 +125,10 @@
       }
     }
 
+    jQuery(document).ready(function() {
+      jQuery('.close-badge').on('click', function() {
+        $('#nhcol-evaluation-badge').stop().fadeOut('fast');
+      });
+    });
+
 })( jQuery );

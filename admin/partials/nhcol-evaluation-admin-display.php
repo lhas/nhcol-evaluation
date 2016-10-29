@@ -38,11 +38,11 @@
         $badge_position = @$options['badge_position'];
 
         $company_logo_id = @$options['company_logo_id'];
-        $company_logo = wp_get_attachment_image_src( $company_logo_id, 'thumbnail' );
+        $company_logo = wp_get_attachment_image_src( $company_logo_id, 'logo1' );
         $company_logo_url = $company_logo[0];
 
         $seal_logo_id = @$options['seal_logo_id'];
-        $seal_logo = wp_get_attachment_image_src( $seal_logo_id, 'thumbnail' );
+        $seal_logo = wp_get_attachment_image_src( $seal_logo_id, 'logo1' );
         $seal_logo_url = $seal_logo[0];
 
         $evaluate_url = @$options['evaluate_url'];
