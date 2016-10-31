@@ -1,3 +1,7 @@
+<?php
+    $this->force_translate();
+?>
+
 <div ng-app="app" ng-init='plugin_options = <?php echo json_encode($this->plugin_options); ?>' ng-controller="EvaluationsCtrl as $ctrl" class="nhcol-evaluation-input content-left">
   <span class="loading" ng-show="$ctrl.loading"></span>
   <article class="evaluate box content">

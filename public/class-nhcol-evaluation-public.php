@@ -60,14 +60,7 @@ class Nhcol_Evaluation_Public {
 		$this->plugin_options = get_option($this->plugin_name);
 
 		// translates
-		$this->plugin_options['translates'] = array(
-			array('name' => __('Not rated', $this->plugin_name) ),
-			array('name' => __('Deficiente', $this->plugin_name) ),
-			array('name' => __('Suficientemente', $this->plugin_name) ),
-			array('name' => __('Satisfatório', $this->plugin_name) ),
-			array('name' => __('Bom', $this->plugin_name) ),
-			array('name' => __('Excelente', $this->plugin_name) ),
-		);
+		$this->force_translate();
 
 		// labels
 		$this->plugin_options['labels'] = array();
@@ -87,7 +80,10 @@ class Nhcol_Evaluation_Public {
 		add_shortcode('nhcol-evaluation-output-pagination', array($this, 'output_pagination_shortcode') );
 
 		add_action('wp_head', array($this, 'validate_evaluation_confirm') );
-		add_action('wp_footer', array($this, 'add_badge_to_website') );
+
+		if($this->plugin_options['show_badge'] == 1) {
+			add_action('wp_footer', array($this, 'add_badge_to_website') );
+		}
 
 		add_action( 'wp_ajax_submit_evaluation', array($this, 'submit_evaluation_callback') );
 		add_action( 'wp_ajax_nopriv_submit_evaluation', array($this, 'submit_evaluation_callback') );
@@ -215,6 +211,8 @@ class Nhcol_Evaluation_Public {
 	 * It generates the badge.
 	 */
 	public function badge_shortcode() {
+		$this->output_average_shortcode();
+		
 		ob_start();
 		include('partials/shortcodes/badge.php');
 		return ob_get_clean();
@@ -323,6 +321,8 @@ class Nhcol_Evaluation_Public {
 				}
 			}
 
+			$this->force_translate();
+
 			$evaluation->average = round($evaluation->average / $n, 2);
 			$evaluation->average_translate = $this->plugin_options['translates'][$evaluation->average]['name'];
 		endforeach;
@@ -330,6 +330,18 @@ class Nhcol_Evaluation_Public {
 		ob_start();
 		include('partials/shortcodes/output/pagination.php');
 		return ob_get_clean();
+	}
+
+	public function force_translate() {
+		// translates
+		$this->plugin_options['translates'] = array(
+			array('name' => __('Not rated', $this->plugin_name) ),
+			array('name' => __('Deficiente', $this->plugin_name) ),
+			array('name' => __('Suficientemente', $this->plugin_name) ),
+			array('name' => __('Satisfatório', $this->plugin_name) ),
+			array('name' => __('Bom', $this->plugin_name) ),
+			array('name' => __('Excelente', $this->plugin_name) ),
+		);
 	}
 
 	public function format_rating($number) {

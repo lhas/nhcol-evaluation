@@ -48,6 +48,6 @@
     </table>
 
     <?php wp_nonce_field( 'nhcol_evaluation' ); ?>
-    <?php submit_button( __( 'Add New Evaluation', 'nhcol_evaluation' ), 'primary', 'submit_evaluation' ); ?>
+    <?php submit_button( __( 'Add New Evaluation', $this->plugin_name ), 'primary', 'submit_evaluation' ); ?>
 </form>
 </div>

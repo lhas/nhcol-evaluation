@@ -50,6 +50,7 @@
         $second_block_text = @$options['second_block_text'];
 
         $maximum_evaluations_per_page = @$options['maximum_evaluations_per_page'];
+        $show_badge = @$options['show_badge'];
 
         if( isset( $_GET[ 'tab' ] ) ) {
             $active_tab = $_GET[ 'tab' ];
@@ -100,22 +101,22 @@
 
     <fieldset>
         <p><?php echo _e('Input Form', $this->plugin_name); ?></p>
-        <input type="text" disabled value="[nhcol-evaluation-input]" class="regular-text">
+        <input type="text" value="[nhcol-evaluation-input]" class="regular-text">
     </fieldset>
 
     <fieldset>
         <p><?php echo _e('Output Average', $this->plugin_name); ?></p>
-        <input type="text" disabled value="[nhcol-evaluation-output-average]" class="regular-text">
+        <input type="text" value="[nhcol-evaluation-output-average]" class="regular-text">
     </fieldset>
 
     <fieldset>
         <p><?php echo _e('Output Pagination', $this->plugin_name); ?></p>
-        <input type="text" disabled value="[nhcol-evaluation-output-pagination]" class="regular-text">
+        <input type="text" value="[nhcol-evaluation-output-pagination]" class="regular-text">
     </fieldset>
 
     <fieldset>
         <p><?php echo _e('Badge', $this->plugin_name); ?></p>
-        <input type="text" disabled value="[nhcol-evaluation-badge]" class="regular-text">
+        <input type="text" value="[nhcol-evaluation-badge]" class="regular-text">
     </fieldset>
 
 </div>

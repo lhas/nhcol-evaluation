@@ -219,6 +219,8 @@ class Nhcol_Evaluation_Admin {
 
     // Seal Logo
     $valid['seal_logo_id'] = (isset($input['seal_logo_id']) && !empty($input['seal_logo_id'])) ? absint($input['seal_logo_id']) : 0;
+    
+    $valid['show_badge'] = (isset($input['show_badge']) && !empty($input['show_badge'])) ? $input['show_badge'] : 0;
 
     
     return $valid;
