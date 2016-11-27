@@ -81,7 +81,9 @@
               <li>
                 <input type="checkbox" value="1" required id="terms_of_service_checkbox"> 
                 <label for="terms_of_service_checkbox">
-                  <a href="<?php echo $this->plugin_options['terms_of_service_url']; ?>"><?php echo $this->plugin_options['terms_of_service_text']; ?></a>
+                  <a href="<?php echo $this->plugin_options['terms_of_service_url']; ?>" target="_blank">
+                    <?php echo $this->plugin_options['terms_of_service_text']; ?>
+                  </a>
                 </label>
               </li>
               <li>

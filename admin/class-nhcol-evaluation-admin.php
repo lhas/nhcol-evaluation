@@ -222,7 +222,10 @@ class Nhcol_Evaluation_Admin {
     
     $valid['show_badge'] = (isset($input['show_badge']) && !empty($input['show_badge'])) ? $input['show_badge'] : 0;
 
-    
+    // Terms of Service
+    $valid['terms_of_service_text'] = (isset($input['terms_of_service_text']) && !empty($input['terms_of_service_text'])) ? $input['terms_of_service_text'] : null;
+    $valid['terms_of_service_url'] = (isset($input['terms_of_service_url']) && !empty($input['terms_of_service_url'])) ? $input['terms_of_service_url'] : null;
+
     return $valid;
  }
 
