@@ -151,6 +151,8 @@ class Nhcol_Evaluation_Admin {
   }
 
   public function display_plugin_add_new_page() {
+    $this->plugin_options = get_option('nhcol-evaluation');
+    
     include_once( 'partials/nhcol-evaluation-admin-add-new.php' );
   }
 
