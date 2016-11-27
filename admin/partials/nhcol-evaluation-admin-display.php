@@ -24,33 +24,36 @@
 
         $company_name = @$options['company_name'];
 
-        $evaluation_question = @$options['evaluation_question'];
-        $evaluation_label_1 = @$options['evaluation_label_1'];
-        $evaluation_label_2 = @$options['evaluation_label_2'];
-        $evaluation_label_3 = @$options['evaluation_label_3'];
-        $evaluation_label_4 = @$options['evaluation_label_4'];
-        $evaluation_label_5 = @$options['evaluation_label_5'];
+        $evaluation_question    = @$options['evaluation_question'];
+        $evaluation_label_1     = @$options['evaluation_label_1'];
+        $evaluation_label_2     = @$options['evaluation_label_2'];
+        $evaluation_label_3     = @$options['evaluation_label_3'];
+        $evaluation_label_4     = @$options['evaluation_label_4'];
+        $evaluation_label_5     = @$options['evaluation_label_5'];
 
-        $evaluation_label_5 = @$options['evaluation_label_5'];
+        $evaluation_label_5     = @$options['evaluation_label_5'];
 
-        $button_background = @$options['button_background'];
-        $button_text = @$options['button_text'];
-        $badge_position = @$options['badge_position'];
+        $button_background      = @$options['button_background'];
+        $button_text            = @$options['button_text'];
+        $badge_position         = @$options['badge_position'];
 
-        $company_logo_id = @$options['company_logo_id'];
-        $company_logo = wp_get_attachment_image_src( $company_logo_id, 'logo1' );
-        $company_logo_url = $company_logo[0];
+        $company_logo_id        = @$options['company_logo_id'];
+        $company_logo           = wp_get_attachment_image_src( $company_logo_id, 'logo1' );
+        $company_logo_url       = $company_logo[0];
 
-        $seal_logo_id = @$options['seal_logo_id'];
-        $seal_logo = wp_get_attachment_image_src( $seal_logo_id, 'logo1' );
-        $seal_logo_url = $seal_logo[0];
+        $seal_logo_id           = @$options['seal_logo_id'];
+        $seal_logo              = wp_get_attachment_image_src( $seal_logo_id, 'logo1' );
+        $seal_logo_url          = $seal_logo[0];
 
-        $evaluate_url = @$options['evaluate_url'];
-        $first_block_text = @$options['first_block_text'];
-        $second_block_text = @$options['second_block_text'];
+        $evaluate_url           = @$options['evaluate_url'];
+        $first_block_text       = @$options['first_block_text'];
+        $second_block_text      = @$options['second_block_text'];
 
-        $maximum_evaluations_per_page = @$options['maximum_evaluations_per_page'];
-        $show_badge = @$options['show_badge'];
+        $maximum_evaluations_per_page   = @$options['maximum_evaluations_per_page'];
+        $show_badge                     = @$options['show_badge'];
+
+        $terms_of_service_text          = @$options['terms_of_service_text'];
+        $terms_of_service_url           = @$options['terms_of_service_url'];
 
         if( isset( $_GET[ 'tab' ] ) ) {
             $active_tab = $_GET[ 'tab' ];
