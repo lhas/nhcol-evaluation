@@ -1,7 +1,7 @@
 <div class="wrap">
   <h1><?php echo _e('Add New Evaluation', $this->plugin_name); ?></h1>
 
-  <form method="post" action="">
+  <form method="post" action="" ng-app="app" ng-init='plugin_options = <?php echo json_encode($this->plugin_options); ?>' ng-controller="EvaluationsCtrl as $ctrl">
   
     <table class="form-table">
         <tr valign="top">

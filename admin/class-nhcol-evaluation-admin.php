@@ -106,7 +106,9 @@ class Nhcol_Evaluation_Admin {
      */
 
       wp_enqueue_media();
+      wp_enqueue_script( 'angularjs', 'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js', array( ), $this->version, false );
       wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/nhcol-evaluation-admin.js', array( 'jquery', 'wp-color-picker', 'media-upload' ), $this->version, false );
+      wp_enqueue_script( $this->plugin_name . '_public', plugin_dir_url( __FILE__ ) . '../public/js/nhcol-evaluation-public.js', array( 'jquery', 'wp-color-picker', 'media-upload' ), $this->version, false );
 
   }
 
