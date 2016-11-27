@@ -167,6 +167,8 @@ class Nhcol_Evaluation_Admin {
       $evaluation->fields[$i] = ['value' => intval($evaluation->$attribute)];
     }
 
+    $this->plugin_options = get_option('nhcol-evaluation');
+
     include_once( 'partials/nhcol-evaluation-admin-edit.php' );
   }
 
@@ -234,6 +236,8 @@ class Nhcol_Evaluation_Admin {
     $valid['terms_of_service_text'] = (isset($input['terms_of_service_text']) && !empty($input['terms_of_service_text'])) ? $input['terms_of_service_text'] : null;
     $valid['terms_of_service_url'] = (isset($input['terms_of_service_url']) && !empty($input['terms_of_service_url'])) ? $input['terms_of_service_url'] : null;
 
+    $valid['published_directly'] = (isset($input['published_directly']) && !empty($input['published_directly'])) ? $input['published_directly'] : 0;
+    
     return $valid;
  }
 

@@ -21,6 +21,12 @@ function wp_insert_evaluation( $args = array() ) {
         'confirmed' => '0'
     );
 
+    $plugin_options = get_option('nhcol-evaluation');
+
+    if($plugin_options['published_directly'] == 1) {
+        $defaults['confirmed_admin'] = 1;
+    }
+
     $args       = wp_parse_args( $args, $defaults );
     $table_name = $wpdb->prefix . 'nhcol_evaluation';
 

@@ -54,6 +54,7 @@
 
         $terms_of_service_text          = @$options['terms_of_service_text'];
         $terms_of_service_url           = @$options['terms_of_service_url'];
+        $published_directly             = @$options['published_directly'];
 
         if( isset( $_GET[ 'tab' ] ) ) {
             $active_tab = $_GET[ 'tab' ];

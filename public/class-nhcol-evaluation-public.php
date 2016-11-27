@@ -243,8 +243,12 @@ class Nhcol_Evaluation_Public {
 
 		// get all evaluations confirmed
 		$table_name = $wpdb->prefix . 'nhcol_evaluation';
-		$evaluations = $wpdb->get_results( "SELECT * FROM $table_name WHERE confirmed = '1'" );
 
+		if($this->plugin_options['published_directly'] == 1) {
+			$evaluations = $wpdb->get_results( "SELECT * FROM $table_name WHERE confirmed = '1'" );
+	  } else {
+			$evaluations = $wpdb->get_results( "SELECT * FROM $table_name WHERE confirmed = '1' AND confirmed_admin = '1'" );
+	  }
 		// evaluations count
 		$this->plugin_options['reviewCount'] = sizeof($evaluations);
 
@@ -295,7 +299,13 @@ class Nhcol_Evaluation_Public {
 
 		// get all evaluations confirmed
 		$table_name = $wpdb->prefix . 'nhcol_evaluation';
-		$query = "SELECT * FROM $table_name WHERE confirmed = '1'";
+
+		if($this->plugin_options['published_directly'] == 1) {
+			$query = "SELECT * FROM $table_name WHERE confirmed = '1'";
+	  } else {
+			$query = "SELECT * FROM $table_name WHERE confirmed = '1' AND confirmed_admin = '1'";
+	  }
+
 		$total_query = "SELECT COUNT(1) FROM (${query}) AS combined_table";
 		$total = $wpdb->get_var( $total_query );
 		$items_per_page = 2;
@@ -303,7 +313,7 @@ class Nhcol_Evaluation_Public {
 		if(!empty($this->plugin_options['maximum_evaluations_per_page'])) {
 			$items_per_page = $this->plugin_options['maximum_evaluations_per_page'];
 		}
-		
+
 		$page = isset( $_GET['cpage'] ) ? abs( (int) $_GET['cpage'] ) : 1;
 		$offset = ( $page * $items_per_page ) - $items_per_page;
 		$latest_evaluations = $wpdb->get_results( $query . " ORDER BY id DESC LIMIT ${offset}, ${items_per_page}" );

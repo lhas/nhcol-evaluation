@@ -9,16 +9,20 @@ class Evaluation_List_Table extends WP_List_Table {
   public static $plugin_name = "nhcol-evaluation";
 
   function get_columns(){
-
-    $columns = array(
-      'cb'        => '<input type="checkbox" />',
-      'confirmed' => __('Confirmed?', self::$plugin_name),
-      'email' => __('Email', self::$plugin_name),
-      'comment'    => __('Comment', self::$plugin_name),
-      'order_number'      => __('Order N.', self::$plugin_name),
-    );
-
+    $columns        = array();
     $plugin_options = get_option('nhcol-evaluation');
+
+    $columns['cb']        = '<input type="checkbox" />';
+    $columns['confirmed'] = __('Confirmed?', self::$plugin_name);
+
+    if($plugin_options['published_directly'] == 0) {
+      $columns['confirmed_admin'] = __('Confirmed by admin?', self::$plugin_name);
+    }
+
+    $columns['email']         = __('Email', self::$plugin_name);
+    $columns['comment']       = __('Comment', self::$plugin_name);
+    $columns['order_number']  = __('Order N.', self::$plugin_name);
+
 
     for($i = 1; $i <= 5; $i++) {
       $label = 'evaluation_label_' . $i;
@@ -28,21 +32,29 @@ class Evaluation_List_Table extends WP_List_Table {
       }
     }
 
+
     return $columns;
   }
 
   function get_sortable_columns() {
-    $sortable_columns = array(
-      'email'  => array('email',false),
-      'confirmed'  => array('confirmed',false),
-      'comment' => array('comment',false),
-      'order_number'   => array('order_number',false),
-      'evaluation_field_1'   => array('evaluation_field_1',false),
-      'evaluation_field_2'   => array('evaluation_field_2',false),
-      'evaluation_field_3'   => array('evaluation_field_3',false),
-      'evaluation_field_4'   => array('evaluation_field_4',false),
-      'evaluation_field_5'   => array('evaluation_field_5',false),
-    );
+    $sortable_columns = array();
+    $plugin_options   = get_option('nhcol-evaluation');
+
+    $sortable_columns['email']              = array('email',false);
+    $sortable_columns['comment']            = array('comment',false);
+    $sortable_columns['confirmed']          = array('confirmed',false);
+
+    if($plugin_options['published_directly'] == 0) {
+      $sortable_columns['confirmed_admin'] = array('confirmed_admin', true);
+    }
+
+    $sortable_columns['order_number']       = array('order_number',false);
+    $sortable_columns['evaluation_field_1'] = array('evaluation_field_1',false);
+    $sortable_columns['evaluation_field_2'] = array('evaluation_field_2',false);
+    $sortable_columns['evaluation_field_3'] = array('evaluation_field_3',false);
+    $sortable_columns['evaluation_field_4'] = array('evaluation_field_4',false);
+    $sortable_columns['evaluation_field_5'] = array('evaluation_field_5',false);
+
     return $sortable_columns;
   }
 
@@ -80,6 +92,11 @@ class Evaluation_List_Table extends WP_List_Table {
   function column_default( $item, $column_name ) {
     switch( $column_name ) {
       case 'confirmed':
+
+        return ($item[ $column_name ] == "1") ? '<span style="color: green; font-weight: bold;">' . __('Yes', 'nhcol-evaluation') . '</span>' : '<span style="color: red; font-weight: bold;">' . __('No', 'nhcol-evaluation') . '</span>';
+
+        break;
+      case 'confirmed_admin':
 
         return ($item[ $column_name ] == "1") ? '<span style="color: green; font-weight: bold;">' . __('Yes', 'nhcol-evaluation') . '</span>' : '<span style="color: red; font-weight: bold;">' . __('No', 'nhcol-evaluation') . '</span>';
 

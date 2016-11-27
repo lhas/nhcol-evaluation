@@ -77,6 +77,17 @@
             <input type="checkbox" name="evaluation[confirmed]" value="1" <?php if(@$evaluation->confirmed) : ?>checked="checked"<?php endif; ?> />
           </td>
         </tr>
+        
+        <?php if($this->plugin_options['published_directly'] == 0) : ?>
+        <tr valign="top">
+          <th scope="row"><?php echo _e('Confirmed by admin?', $this->plugin_name); ?></th>
+          <td>
+            <input type="hidden" name="evaluation[confirmed_admin]" value="0" />
+            <input type="checkbox" name="evaluation[confirmed_admin]" value="1" <?php if(@$evaluation->confirmed_admin) : ?>checked="checked"<?php endif; ?> />
+          </td>
+        </tr>
+        <?php endif; ?>
+
     </table>
 
     <?php wp_nonce_field( 'nhcol_evaluation' ); ?>

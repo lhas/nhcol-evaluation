@@ -1,4 +1,10 @@
 <fieldset>
+    <p><?php _e('Evaluations Published Directly?', $this->plugin_name); ?></p>
+    <input type="hidden" name="<?php echo $this->plugin_name; ?>[published_directly]" value="0">
+    <input type="checkbox" id="<?php echo $this->plugin_name; ?>-published_directly" name="<?php echo $this->plugin_name; ?>[published_directly]" value="1" <?php if(!empty($published_directly)) { ?>checked="checked"<?php } ?> />
+</fieldset>
+
+<fieldset>
     <p><?php _e('Terms of Service Text', $this->plugin_name); ?></p>
     <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-terms_of_service_text" name="<?php echo $this->plugin_name; ?>[terms_of_service_text]" value="<?php if(!empty($terms_of_service_text)) echo $terms_of_service_text; ?>"/>
 </fieldset>
