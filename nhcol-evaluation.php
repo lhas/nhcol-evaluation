@@ -13,7 +13,7 @@
  * @package           Nhcol_Evaluation
  *
  * @wordpress-plugin
- * Plugin Name:       NHCOL Evaluation (Premium)
+ * Plugin Name:       NHCOL Evaluation (Standard)
  * Plugin URI:        https://github.com/lhas/nhcol-evaluation
  * Description:       NHCOL created this plug-in for Evaluations.
  * Version:           1.0.0
