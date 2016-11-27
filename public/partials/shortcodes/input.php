@@ -64,10 +64,6 @@
               </tr>
           </tbody></table>
 
-        <p class="first-block-text block-text"><?php echo $this->plugin_options['first_block_text']; ?></p>
-        
-        <p class="second-block-text block-text"><?php echo $this->plugin_options['second_block_text']; ?></p>
-
           <ul class="full">
               <li>
                   <label for="textarea"><?php echo __('Evaluation Comment', $this->plugin_name); ?></label>
