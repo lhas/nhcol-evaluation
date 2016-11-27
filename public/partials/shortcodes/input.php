@@ -78,8 +78,17 @@
                   <label for="input_1"><?php echo __('Order Number', $this->plugin_name); ?>: <span>*</span></label>
                   <input id="input_1" type="text" required ng-model="$ctrl.evaluation.order_number">
               </li>
-
-              <li><button type="submit" class="button arr" ng-disabled="$ctrl.evaluation.fields.length != plugin_options.labels.length"><?php echo __('Send', $this->plugin_name); ?></button></li>
+              <li>
+                <input type="checkbox" value="1" required id="terms_of_service_checkbox"> 
+                <label for="terms_of_service_checkbox">
+                  <a href="<?php echo $this->plugin_options['terms_of_service_url']; ?>"><?php echo $this->plugin_options['terms_of_service_text']; ?></a>
+                </label>
+              </li>
+              <li>
+                <button type="submit" class="button arr" ng-disabled="$ctrl.evaluation.fields.length != plugin_options.labels.length">
+                  <?php echo __('Send', $this->plugin_name); ?>
+                </button>
+              </li>
           </ul>
 
           <div class="evaluation-success" ng-show="$ctrl.status == 'success'">

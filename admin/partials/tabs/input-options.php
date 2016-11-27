@@ -1,4 +1,14 @@
 <fieldset>
+    <p><?php _e('Terms of Service Text', $this->plugin_name); ?></p>
+    <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-terms_of_service_text" name="<?php echo $this->plugin_name; ?>[terms_of_service_text]" value="<?php if(!empty($terms_of_service_text)) echo $terms_of_service_text; ?>"/>
+</fieldset>
+
+<fieldset>
+    <p><?php _e('Terms of Service URL', $this->plugin_name); ?></p>
+    <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-terms_of_service_url" name="<?php echo $this->plugin_name; ?>[terms_of_service_url]" value="<?php if(!empty($terms_of_service_url)) echo $terms_of_service_url; ?>"/>
+</fieldset>
+
+<fieldset>
     <p><?php _e('Evaluation Title', $this->plugin_name); ?></p>
     <legend class="screen-reader-text"><span><?php _e('Choose your prefered cdn provider', $this->plugin_name); ?></span></legend>
     <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-evaluation_question" name="<?php echo $this->plugin_name; ?>[evaluation_question]" value="<?php if(!empty($evaluation_question)) echo $evaluation_question; ?>"/>

@@ -47,7 +47,7 @@ class Nhcol_Evaluation_Activator {
 			evaluation_field_3 int NULL,
 			evaluation_field_4 int NULL,
 			evaluation_field_5 int NULL,
-			confirmed int DEFAULT '0' NULL,
+			confirmed int DEFAULT '0' NULL,	
 			PRIMARY KEY  (id)
 		) $charset_collate;";
 
@@ -67,6 +67,8 @@ class Nhcol_Evaluation_Activator {
 			'button_background' => '#2226f9',
 			'button_text' => '#3afcfc',
 			'badge_position' => 'middle',
+			'terms_of_service_url' => 'http://google.com',
+			'terms_of_service_text' => 'I agree with Terms of Service',
 		);
 		get_option($option);
 		add_option( $option, $value );
