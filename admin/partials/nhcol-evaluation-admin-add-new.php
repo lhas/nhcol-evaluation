@@ -32,7 +32,35 @@
         <tr valign="top">
           <th scope="row"><?php echo $plugin_options[$label]; ?></th>
           <td>
-            <input type="range" required name="evaluation[evaluation_field_<?php echo $i; ?>]"  min="1" max="5" value="1" step="1">
+            <!-- <input type="range" required name="evaluation[evaluation_field_<?php echo $i; ?>]"  min="1" max="5" value="1" step="1"> -->
+
+                      <span class="rating">
+                          <a href="javascript:void(0);" ng-click="$ctrl.chooseAnswer(1, label, index)">
+                            <i class="fa" ng-class="{'fa-star-o': !$ctrl.evaluation.fields[index] || $ctrl.evaluation.fields[index].value < 1, 'fa-star': $ctrl.evaluation.fields[index].value >= 1}"></i>
+                          </a>
+                      </span>
+                      <span class="rating">
+                          <a href="javascript:void(0);" ng-click="$ctrl.chooseAnswer(2, label, index)">
+                            <i class="fa" ng-class="{'fa-star-o': !$ctrl.evaluation.fields[index] || $ctrl.evaluation.fields[index].value < 2, 'fa-star': $ctrl.evaluation.fields[index].value >= 2}"></i>
+                          </a>
+                      </span>
+                      <span class="rating">
+                          <a href="javascript:void(0);" ng-click="$ctrl.chooseAnswer(3, label, index)">
+                            <i class="fa" ng-class="{'fa-star-o': !$ctrl.evaluation.fields[index] || $ctrl.evaluation.fields[index].value < 3, 'fa-star': $ctrl.evaluation.fields[index].value >= 3}"></i>
+                          </a>
+                      </span>
+                      <span class="rating">
+                          <a href="javascript:void(0);" ng-click="$ctrl.chooseAnswer(4, label, index)">
+                            <i class="fa" ng-class="{'fa-star-o': !$ctrl.evaluation.fields[index] || $ctrl.evaluation.fields[index].value < 4, 'fa-star': $ctrl.evaluation.fields[index].value >= 4}"></i>
+                          </a>
+                      </span>
+                      <span class="rating">
+                          <a href="javascript:void(0);" ng-click="$ctrl.chooseAnswer(5, label, index)">
+                            <i class="fa" ng-class="{'fa-star-o': !$ctrl.evaluation.fields[index] || $ctrl.evaluation.fields[index].value < 5, 'fa-star': $ctrl.evaluation.fields[index].value >= 5}"></i>
+                          </a>
+                      </span>
+
+                      <i class="fa fa-star"></i>
           </td>
         </tr>
 

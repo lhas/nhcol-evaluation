@@ -83,6 +83,7 @@ class Nhcol_Evaluation_Admin {
 
       // CSS stylesheet for Color Picker
       wp_enqueue_style( 'wp-color-picker' );
+      wp_enqueue_style( 'fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', array(), $this->version, 'all' );
       wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/nhcol-evaluation-admin.css', array( 'wp-color-picker' ), $this->version, 'all' );
   }
 
