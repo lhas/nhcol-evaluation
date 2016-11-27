@@ -162,6 +162,11 @@ class Nhcol_Evaluation_Admin {
     $table_name = $wpdb->prefix . 'nhcol_evaluation';
     $evaluation = $wpdb->get_row( "SELECT * FROM $table_name WHERE id = $evaluation_id" );
 
+    for($i = 1; $i <= 5; $i++) {
+      $attribute = 'evaluation_field_'. $i;
+      $evaluation->fields[$i] = ['value' => intval($evaluation->$attribute)];
+    }
+
     include_once( 'partials/nhcol-evaluation-admin-edit.php' );
   }
 

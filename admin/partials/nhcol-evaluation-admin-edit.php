@@ -1,7 +1,7 @@
 <div class="wrap">
   <h1><?php echo _e('Edit Evaluation', $this->plugin_name); ?></h1>
 
-  <form method="post" action="">
+  <form method="post" action="" ng-app="app" ng-init='plugin_options = <?php echo json_encode($this->plugin_options); ?>; $ctrl.evaluation = <?php echo json_encode(@$evaluation); ?>;' ng-controller="EvaluationsCtrl as $ctrl">
 
     <input type="hidden" name="field_id" value="<?php echo @$evaluation->id; ?>">
   
@@ -34,7 +34,37 @@
         <tr valign="top">
           <th scope="row"><?php echo $plugin_options[$label]; ?></th>
           <td>
-            <input type="range" required name="evaluation[evaluation_field_<?php echo $i; ?>]"  min="1" max="5" value="<?php echo @$evaluation->$attribute; ?>" step="1">
+
+            <input type="hidden" name="evaluation[evaluation_field_<?php echo $i; ?>]" ng-model="$ctrl.evaluation.fields[<?php echo $i; ?>].value" value="{{$ctrl.evaluation.fields[<?php echo $i; ?>].value}}">
+
+            <span class="rating">
+                <a href="javascript:void(0);" ng-click="$ctrl.chooseAnswer(1, label, <?php echo $i; ?>)">
+                  <i class="fa" ng-class="{'fa-star-o': !$ctrl.evaluation.fields[<?php echo $i; ?>] || $ctrl.evaluation.fields[<?php echo $i; ?>].value < 1, 'fa-star': $ctrl.evaluation.fields[<?php echo $i; ?>].value >= 1}"></i>
+                </a>
+            </span>
+            <span class="rating">
+                <a href="javascript:void(0);" ng-click="$ctrl.chooseAnswer(2, label, <?php echo $i; ?>)">
+                  <i class="fa" ng-class="{'fa-star-o': !$ctrl.evaluation.fields[<?php echo $i; ?>] || $ctrl.evaluation.fields[<?php echo $i; ?>].value < 2, 'fa-star': $ctrl.evaluation.fields[<?php echo $i; ?>].value >= 2}"></i>
+                </a>
+            </span>
+            <span class="rating">
+                <a href="javascript:void(0);" ng-click="$ctrl.chooseAnswer(3, label, <?php echo $i; ?>)">
+                  <i class="fa" ng-class="{'fa-star-o': !$ctrl.evaluation.fields[<?php echo $i; ?>] || $ctrl.evaluation.fields[<?php echo $i; ?>].value < 3, 'fa-star': $ctrl.evaluation.fields[<?php echo $i; ?>].value >= 3}"></i>
+                </a>
+            </span>
+            <span class="rating">
+                <a href="javascript:void(0);" ng-click="$ctrl.chooseAnswer(4, label, <?php echo $i; ?>)">
+                  <i class="fa" ng-class="{'fa-star-o': !$ctrl.evaluation.fields[<?php echo $i; ?>] || $ctrl.evaluation.fields[<?php echo $i; ?>].value < 4, 'fa-star': $ctrl.evaluation.fields[<?php echo $i; ?>].value >= 4}"></i>
+                </a>
+            </span>
+            <span class="rating">
+                <a href="javascript:void(0);" ng-click="$ctrl.chooseAnswer(5, label, <?php echo $i; ?>)">
+                  <i class="fa" ng-class="{'fa-star-o': !$ctrl.evaluation.fields[<?php echo $i; ?>] || $ctrl.evaluation.fields[<?php echo $i; ?>].value < 5, 'fa-star': $ctrl.evaluation.fields[<?php echo $i; ?>].value >= 5}"></i>
+                </a>
+            </span>
+
+            <p class="stars-value">{{$ctrl.evaluation.fields[<?php echo $i; ?>].value}}</p>
+
           </td>
         </tr>
 
