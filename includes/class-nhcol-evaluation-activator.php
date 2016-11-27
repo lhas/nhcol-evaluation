@@ -70,7 +70,9 @@ class Nhcol_Evaluation_Activator {
 			'badge_position' => 'middle',
 			'terms_of_service_url' => 'http://google.com',
 			'terms_of_service_text' => 'I agree with Terms of Service',
-			'published_directly' => 1
+			'published_directly' => 1,
+			'background_color_output_form' => '#ecf0f1',
+			'stars_color' => '#f1c40f',
 		);
 		get_option($option);
 		add_option( $option, $value );

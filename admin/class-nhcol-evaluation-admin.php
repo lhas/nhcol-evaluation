@@ -237,6 +237,30 @@ class Nhcol_Evaluation_Admin {
     $valid['terms_of_service_url'] = (isset($input['terms_of_service_url']) && !empty($input['terms_of_service_url'])) ? $input['terms_of_service_url'] : null;
 
     $valid['published_directly'] = (isset($input['published_directly']) && !empty($input['published_directly'])) ? $input['published_directly'] : 0;
+
+    // Color Picker
+    $valid['background_color_output_form'] = (isset($input['background_color_output_form']) && !empty($input['background_color_output_form'])) ? sanitize_text_field($input['background_color_output_form']) : '';
+
+    if ( !empty($valid['background_color_output_form']) && !preg_match( '/^#[a-f0-9]{6}$/i', $valid['background_color_output_form']  ) ) { // if user insert a HEX color with #
+        add_settings_error(
+                'background_color_output_form',                     // Setting title
+                'background_color_output_formerror',            // Error ID
+                'Please enter a valid hex value color',     // Error message
+                'error'                         // Type of message
+        );
+    }
+
+    // Color Picker
+    $valid['stars_color'] = (isset($input['stars_color']) && !empty($input['stars_color'])) ? sanitize_text_field($input['stars_color']) : '';
+
+    if ( !empty($valid['stars_color']) && !preg_match( '/^#[a-f0-9]{6}$/i', $valid['stars_color']  ) ) { // if user insert a HEX color with #
+        add_settings_error(
+                'stars_color',                     // Setting title
+                'stars_color_texterror',            // Error ID
+                'Please enter a valid hex value color',     // Error message
+                'error'                         // Type of message
+        );
+    }
     
     return $valid;
  }

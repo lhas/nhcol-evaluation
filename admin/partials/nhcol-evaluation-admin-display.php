@@ -55,6 +55,8 @@
         $terms_of_service_text          = @$options['terms_of_service_text'];
         $terms_of_service_url           = @$options['terms_of_service_url'];
         $published_directly             = @$options['published_directly'];
+        $background_color_output_form   = @$options['background_color_output_form'];
+        $stars_color                    = @$options['stars_color'];
 
         if( isset( $_GET[ 'tab' ] ) ) {
             $active_tab = $_GET[ 'tab' ];

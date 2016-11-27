@@ -110,4 +110,13 @@
         background: <?php echo $this->plugin_options['button_background']; ?>;
         color: <?php echo $this->plugin_options['button_text']; ?>;
     }
+
+    .rating .fa {
+      color: <?php echo $this->plugin_options['stars_color']; ?>;
+    }
+
+    form[name="myForm"] {
+      background: <?php echo $this->plugin_options['background_color_output_form']; ?>;
+      padding: 10px;
+    }
 </style>
