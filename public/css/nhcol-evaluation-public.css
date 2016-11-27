@@ -198,3 +198,15 @@
   font-size: 17px;
   cursor: pointer;
 }
+
+.badge-size.badge-size-small img {
+  width: 75px;
+}
+
+.badge-size.badge-size-medium img {
+  width: 150px;
+}
+
+.badge-size.badge-size-big img {
+  width: 250px;
+}

@@ -261,6 +261,8 @@ class Nhcol_Evaluation_Admin {
                 'error'                         // Type of message
         );
     }
+
+    $valid['badge_size'] = (isset($input['badge_size']) && !empty($input['badge_size'])) ? $input['badge_size'] : null;
     
     return $valid;
  }

@@ -5,8 +5,8 @@
   $seal_logo_url = wp_get_attachment_image_src($this->plugin_options['seal_logo_id'], 'logo1')[0];
 ?>
 
-<a id="nhcol-evaluation-badge2" href="<?php echo $this->plugin_options['evaluate_url']; ?>" title="<?php echo $company_name; ?>">
-  <img src="<?php echo $seal_logo_url; ?>" style="width: 100px;" />
+<a id="nhcol-evaluation-badge2" class="badge-size badge-size-<?php echo $this->plugin_options['badge_size']; ?>" href="<?php echo $this->plugin_options['evaluate_url']; ?>" title="<?php echo $company_name; ?>">
+  <img src="<?php echo $seal_logo_url; ?>" />
 
   <p class="ratingvalue-name">
     <?php echo __($this->plugin_options['translates'][$this->plugin_options['ratingValue']]['name'], $this->plugin_name); ?>

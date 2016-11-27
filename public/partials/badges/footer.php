@@ -5,13 +5,13 @@
   $seal_logo_url = wp_get_attachment_image_src($this->plugin_options['seal_logo_id'], 'logo1')[0];
 ?>
 
-<div id="nhcol-evaluation-badge">
+<div id="nhcol-evaluation-badge" class="badge-size badge-size-<?php echo $this->plugin_options['badge_size']; ?>">
 
   <span class="close-badge">X</span>
 
   <a href="<?php echo $this->plugin_options['evaluate_url']; ?>" title="<?php echo $company_name; ?>">
 
-    <img src="<?php echo $seal_logo_url; ?>" style="width: 100px;" />
+    <img src="<?php echo $seal_logo_url; ?>" />
 
     <p class="ratingvalue-name">
       <?php echo __($this->plugin_options['translates'][$this->plugin_options['ratingValue']]['name'], $this->plugin_name); ?>

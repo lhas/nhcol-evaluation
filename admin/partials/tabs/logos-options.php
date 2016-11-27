@@ -20,3 +20,12 @@
         <button id="nhcol_evaluation-delete_logo_button" style="display: inline-block; vertical-align: top;" class="nhcol_evaluation-delete-image"><?php _e('Remove', $this->plugin_name);?></button>
     </div>
 </fieldset>
+
+<fieldset>
+    <p><?php _e('Badge Size', $this->plugin_name); ?></p>
+    <select class="regular-text" name="<?php echo $this->plugin_name; ?>[badge_size]">
+        <option value="small" <?php if($badge_size == 'small') { ?>selected="selected"<?php } ?>><?php _e('Small', $this->plugin_name); ?></option>
+        <option value="medium" <?php if($badge_size == 'medium') { ?>selected="selected"<?php } ?>><?php _e('Medium', $this->plugin_name); ?></option>
+        <option value="big" <?php if($badge_size == 'big') { ?>selected="selected"<?php } ?>><?php _e('Big', $this->plugin_name); ?></option>
+    </select>
+</fieldset>

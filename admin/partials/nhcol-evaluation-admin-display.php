@@ -57,6 +57,7 @@
         $published_directly             = @$options['published_directly'];
         $background_color_output_form   = @$options['background_color_output_form'];
         $stars_color                    = @$options['stars_color'];
+        $badge_size                     = @$options['badge_size'];
 
         if( isset( $_GET[ 'tab' ] ) ) {
             $active_tab = $_GET[ 'tab' ];
