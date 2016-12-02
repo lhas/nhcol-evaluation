@@ -1,19 +1,79 @@
 /**
- * All of the CSS for your admin-specific functionality should be
- * included in this file.
- */
- .nhcol_evaluation-upload-preview div {
-   border: 1px solid #000;
-   display: inline-block;
- }
+* All of the CSS for your admin-specific functionality should be
+* included in this file.
+*/
+.nhcol_evaluation-upload-preview div {
+ border: 1px solid #000;
+ display: inline-block;
+}
 
- .stars-value {
-  display: inline-block;
-  margin-left: 10px;
+.stars-value {
+display: inline-block;
+margin-left: 10px;
+font-weight: bold;
+}
+.rating a {
+font-size: 20px;
+color: #000;
+text-decoration: none;
+}
+.logo-fieldset {
+margin-top: 30px;
+margin-bottom: 30px;
+display: block;
+}
+.btn-upload-logo {
+  height: 40px !important;
+  line-height: 40px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  margin-bottom: 20px !important;
+  background: #26a69a !important;
+  border: none !important;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2) !important;
+  color: #FFF !important;
   font-weight: bold;
- }
- .rating a {
-  font-size: 20px;
-  color: #000;
-  text-decoration: none;
- }
+  text-transform: uppercase;
+  border-radius: 2px !important;
+  letter-spacing: .5px !important;
+}
+#nhcol_evaluation-delete_logo_button {
+  height: 30px !important;
+  line-height: 30px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  margin-bottom: 20px !important;
+  background: #F44336 !important;
+  border: none !important;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2) !important;
+  color: #FFF !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 2px !important;
+  letter-spacing: .5px !important;
+}
+.you-selected {
+font-weight: normal;
+}
+.seal-logo-container {
+  background-repeat: no-repeat !important;
+  background-size: 100% !important;
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+}
+.predefined-badge {
+  height: 150px;
+  margin-bottom: 20px;
+}
+.predefined-option {
+  background: #FFF;
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid #CCC;
+  border-radius: 10px;
+  text-align: center;
+}
+.predefined-option:hover {
+  background: rgba(0,0,0,0.01);
+}

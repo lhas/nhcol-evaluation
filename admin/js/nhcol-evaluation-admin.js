@@ -49,16 +49,16 @@
 
          // Let's set up some variables for the image upload and removing the image     
          var frame,
-             imgUploadButton = $( '.button_upload' ),
-             imgDelButton = $('.nhcol_evaluation-delete-image'),
+             imgUploadButton = '.button_upload',
+             imgDelButton = '.nhcol_evaluation-delete-image',
              // Color Pickers Inputs
              colorPickerInputs = $( '.nhcol-evaluation-color-picker' );
 
          // WordPress specific plugins - color picker and image upload
-         $( '.nhcol-evaluation-color-picker' ).wpColorPicker();
+         $( colorPickerInputs ).wpColorPicker();
 
         // wp.media add Image
-         imgUploadButton.on( 'click', function( event ){
+         $('body').on( 'click', imgUploadButton, function( event ){
 
            var element = $(this);
             
@@ -81,7 +81,7 @@
               var imgIdInput = $(element).parent().parent().find('.logo_id');
 
               // Send the attachment URL to our custom image input field.
-              imgPreview.find( 'div' ).css( 'background', 'url(' + attachment.sizes.full.url + ')' ).css('background-size', 'cover');
+              imgPreview.find( 'div' ).css( 'background', 'url(' + attachment.sizes.full.url + ')' );
 
               // Send the attachment id to our hidden input
               imgIdInput.val( attachment.id );
@@ -96,7 +96,7 @@
 
 
         // Erase image url and age preview
-        imgDelButton.on('click', function(e){
+         $('body').on( 'click', imgDelButton, function( e ){
             var element = $(this);
             var imgPreview = $(element).parent().parent().find('.nhcol_evaluation-upload-preview');
             var imgIdInput = $(element).parent().parent().find('.logo_id');
@@ -110,3 +110,15 @@
     }); // End of DOM Ready
 
 })( jQuery );
+
+/* evaluations.module.js */
+angular
+  .module('logos', []);
+
+/* evaluations.controller.js */
+angular
+  .module('logos')
+  .controller('LogosCtrl', LogosCtrl);
+
+function LogosCtrl() {
+}

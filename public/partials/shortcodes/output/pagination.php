@@ -49,8 +49,17 @@
 </div> <!-- .evaluation-pagination -->
 
 <style type="text/css">
-    .evaluation-pagination a {
-        background: <?php echo $this->plugin_options['button_background']; ?>;
-        color: <?php echo $this->plugin_options['button_text']; ?>;
-    }
+.evaluation-pagination a {
+  background: <?php echo $this->plugin_options['button_background']; ?>;
+  color: <?php echo $this->plugin_options['button_text']; ?>;
+}
+
+.nhcol-evaluation-single {
+  background: <?php echo $this->plugin_options['background_color_output_form']; ?>;
+  padding: 10px;
+}
+
+.nhcol-evaluation-single h5 i.fa {
+  color: <?php echo $this->plugin_options['stars_color']; ?>;
+}
 </style>

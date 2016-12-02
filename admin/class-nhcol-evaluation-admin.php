@@ -265,6 +265,8 @@ class Nhcol_Evaluation_Admin {
     }
 
     $valid['badge_size'] = (isset($input['badge_size']) && !empty($input['badge_size'])) ? $input['badge_size'] : null;
+    $valid['badge_display_type'] = (isset($input['badge_display_type']) && !empty($input['badge_display_type'])) ? $input['badge_display_type'] : null;
+    $valid['badge_predefined_file'] = (isset($input['badge_predefined_file']) && !empty($input['badge_predefined_file'])) ? $input['badge_predefined_file'] : null;
     
     return $valid;
  }

@@ -74,6 +74,8 @@ class Nhcol_Evaluation_Activator {
 			'background_color_output_form' => '#ecf0f1',
 			'stars_color' => '#f1c40f',
 			'badge_size' => 'medium',
+			'badge_display_type' => 'predefined',
+			'badge_predefined_file' => ''
 		);
 		get_option($option);
 		add_option( $option, $value );

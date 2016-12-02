@@ -110,9 +110,6 @@
   padding: 0px;
   margin: 10px !important;
 }
-.nhcol-evaluation-single h5 i.fa {
-  color: #fdd835;
-}
 .nhcol-evaluation-single h5 a {
   text-decoration: none;
   border: none;
@@ -143,6 +140,7 @@
 #nhcol-evaluation-badge a {
   text-align: center;
   color: #000;
+  display: inline-block;
 }
 #nhcol-evaluation-badge .ratingvalue-name {
   font-size: 12px;

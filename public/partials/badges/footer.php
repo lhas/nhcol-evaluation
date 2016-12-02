@@ -2,7 +2,12 @@
   $company_name = $this->plugin_options['company_name'];
   $badge_position = $this->plugin_options['badge_position'];
   $company_logo_url = wp_get_attachment_image_src($this->plugin_options['company_logo_id'], 'logo1')[0];
-  $seal_logo_url = wp_get_attachment_image_src($this->plugin_options['seal_logo_id'], 'logo1')[0];
+
+  if($this->plugin_options['badge_display_type'] == 'owned') {
+    $seal_logo_url = wp_get_attachment_image_src($this->plugin_options['seal_logo_id'], 'logo1')[0];
+  } else if($this->plugin_options['badge_display_type'] == 'predefined') {
+    $seal_logo_url = $this->plugin_options['badge_predefined_file'];
+  }
 ?>
 
 <div id="nhcol-evaluation-badge" class="badge-size badge-size-<?php echo $this->plugin_options['badge_size']; ?>">

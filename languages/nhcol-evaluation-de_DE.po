@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NHCOL Evaluation\n"
-"POT-Creation-Date: 2016-10-29 15:24-0200\n"
-"PO-Revision-Date: 2016-10-31 21:10+0100\n"
+"POT-Creation-Date: 2016-12-02 19:50-0200\n"
+"PO-Revision-Date: 2016-12-02 19:50-0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -16,53 +16,61 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/class-evaluation-list-table.php:15
-#: admin/partials/nhcol-evaluation-admin-add-new.php:42
-#: admin/partials/nhcol-evaluation-admin-edit.php:44
+#: admin/class-evaluation-list-table.php:16
+#: admin/partials/nhcol-evaluation-admin-add-new.php:71
+#: admin/partials/nhcol-evaluation-admin-edit.php:74
 msgid "Confirmed?"
 msgstr "Bestätigt?"
 
-#: admin/class-evaluation-list-table.php:16
+#: admin/class-evaluation-list-table.php:19
+#: admin/partials/nhcol-evaluation-admin-add-new.php:80
+#: admin/partials/nhcol-evaluation-admin-edit.php:83
+msgid "Confirmed by admin?"
+msgstr ""
+
+#: admin/class-evaluation-list-table.php:22
 #: admin/partials/nhcol-evaluation-admin-add-new.php:8
 #: admin/partials/nhcol-evaluation-admin-edit.php:10
 msgid "Email"
 msgstr "E-Mail"
 
-#: admin/class-evaluation-list-table.php:17
+#: admin/class-evaluation-list-table.php:23
 #: admin/partials/nhcol-evaluation-admin-add-new.php:12
 #: admin/partials/nhcol-evaluation-admin-edit.php:14
 msgid "Comment"
 msgstr "Kommentar"
 
-#: admin/class-evaluation-list-table.php:18
+#: admin/class-evaluation-list-table.php:24
 msgid "Order N."
 msgstr "Bestell-Nr."
 
-#: admin/class-evaluation-list-table.php:84
+#: admin/class-evaluation-list-table.php:96
+#: admin/class-evaluation-list-table.php:101
 msgid "Yes"
 msgstr "Ja"
 
-#: admin/class-evaluation-list-table.php:84
+#: admin/class-evaluation-list-table.php:96
+#: admin/class-evaluation-list-table.php:101
 msgid "No"
 msgstr "Nein"
 
-#: admin/class-nhcol-evaluation-admin.php:114
+#: admin/class-nhcol-evaluation-admin.php:125
 msgid "Evaluations"
 msgstr "Bewertungen"
 
-#: admin/class-nhcol-evaluation-admin.php:117
+#: admin/class-nhcol-evaluation-admin.php:128
 msgid "Add New"
 msgstr "Hinzufügen"
 
-#: admin/class-nhcol-evaluation-admin.php:120
+#: admin/class-nhcol-evaluation-admin.php:131
 msgid "Setup"
 msgstr "Konfiguration"
 
-#: admin/class-nhcol-evaluation-admin.php:123
+#: admin/class-nhcol-evaluation-admin.php:134
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: admin/class-nhcol-evaluation-admin.php:132
+#: admin/class-nhcol-evaluation-admin.php:143
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -70,30 +78,30 @@ msgstr "Einstellungen"
 msgid "Are you cheating?"
 msgstr "Betrügst du etwa?"
 
-#: admin/includes/helpers.php:41
+#: admin/includes/helpers.php:47
 msgid "You must confirm your evaluation"
 msgstr "Sie müssen ihre Bewertung bestätigen"
 
-#: admin/includes/helpers.php:42
+#: admin/includes/helpers.php:48
 msgid "Hello!"
 msgstr "Hallo!"
 
-#: admin/includes/helpers.php:45
+#: admin/includes/helpers.php:51
 msgid "Recently you submitted a evaluation about our store."
 msgstr "Kürzlich haben sie eine Bewertung für den Shop abgegeben."
 
-#: admin/includes/helpers.php:46
+#: admin/includes/helpers.php:52
 msgid "Now you need to confirm it, so we can show it at our website."
 msgstr ""
 "Jetzt müssen Sie noch die Bewertung bestätigen, damit sie auf unserer "
 "Website erscheint."
 
-#: admin/includes/helpers.php:47
+#: admin/includes/helpers.php:53
 msgid "You just need to click in the link below:"
 msgstr "Sie müssen auf den unten stehenden Link klicken"
 
 #: admin/partials/nhcol-evaluation-admin-add-new.php:2
-#: admin/partials/nhcol-evaluation-admin-add-new.php:51
+#: admin/partials/nhcol-evaluation-admin-add-new.php:91
 msgid "Add New Evaluation"
 msgstr "Eine neue Bewertung abgegeben"
 
@@ -115,48 +123,48 @@ msgstr "Bewertungen gelöscht."
 msgid "Evaluation added with success!"
 msgstr "Bewertung erfolgreich bestätigt."
 
-#: admin/partials/nhcol-evaluation-admin-display.php:67
+#: admin/partials/nhcol-evaluation-admin-display.php:75
 msgid "General Options"
 msgstr "Allgemeine Einstellungen"
 
-#: admin/partials/nhcol-evaluation-admin-display.php:68
-msgid "Input Options"
-msgstr "Eingabe Optionen"
-
-#: admin/partials/nhcol-evaluation-admin-display.php:69
+#: admin/partials/nhcol-evaluation-admin-display.php:77
 msgid "Output Options"
 msgstr "Ausgabe Optionen"
 
-#: admin/partials/nhcol-evaluation-admin-display.php:70
+#: admin/partials/nhcol-evaluation-admin-display.php:80
+msgid "Input Options"
+msgstr "Eingabe Optionen"
+
+#: admin/partials/nhcol-evaluation-admin-display.php:81
 msgid "Logos Options"
 msgstr "Logo Einstellungen"
 
-#: admin/partials/nhcol-evaluation-admin-display.php:71
+#: admin/partials/nhcol-evaluation-admin-display.php:82
 msgid "Colors Options"
 msgstr "Farbeinstellungen"
 
-#: admin/partials/nhcol-evaluation-admin-display.php:94
+#: admin/partials/nhcol-evaluation-admin-display.php:107
 msgid "Save all"
 msgstr "Alles speichern"
 
-#: admin/partials/nhcol-evaluation-admin-display.php:102
+#: admin/partials/nhcol-evaluation-admin-display.php:115
 msgid "Input Form"
 msgstr "Eingabeformular"
 
-#: admin/partials/nhcol-evaluation-admin-display.php:107
+#: admin/partials/nhcol-evaluation-admin-display.php:120
 msgid "Output Average"
 msgstr "Ausgabeformular"
 
-#: admin/partials/nhcol-evaluation-admin-display.php:112
+#: admin/partials/nhcol-evaluation-admin-display.php:125
 msgid "Output Pagination"
 msgstr "Ausgabe Pagination"
 
-#: admin/partials/nhcol-evaluation-admin-display.php:117
+#: admin/partials/nhcol-evaluation-admin-display.php:130
 msgid "Badge"
 msgstr "Badge"
 
 #: admin/partials/nhcol-evaluation-admin-edit.php:2
-#: admin/partials/nhcol-evaluation-admin-edit.php:53
+#: admin/partials/nhcol-evaluation-admin-edit.php:94
 msgid "Edit Evaluation"
 msgstr "Bewertung bearbeiten"
 
@@ -168,17 +176,25 @@ msgstr "Button Hintergrund"
 msgid "Button Text"
 msgstr "Button Textfarbe"
 
+#: admin/partials/tabs/colors-options.php:12
+msgid "Background Color of Output Form"
+msgstr ""
+
+#: admin/partials/tabs/colors-options.php:17
+msgid "Stars Color"
+msgstr ""
+
 #: admin/partials/tabs/general-options.php:2
 msgid "Company Name"
 msgstr "Firmenbezeichnung"
 
 #: admin/partials/tabs/general-options.php:3
-#: admin/partials/tabs/input-options.php:3
-#: admin/partials/tabs/input-options.php:9
-#: admin/partials/tabs/input-options.php:15
-#: admin/partials/tabs/input-options.php:21
-#: admin/partials/tabs/input-options.php:27
-#: admin/partials/tabs/input-options.php:33
+#: admin/partials/tabs/input-options.php:19
+#: admin/partials/tabs/input-options.php:25
+#: admin/partials/tabs/input-options.php:31
+#: admin/partials/tabs/input-options.php:37
+#: admin/partials/tabs/input-options.php:43
+#: admin/partials/tabs/input-options.php:49
 msgid "Choose your prefered cdn provider"
 msgstr "Wähle deinen bevorzugten cdn Anbieter"
 
@@ -186,34 +202,84 @@ msgstr "Wähle deinen bevorzugten cdn Anbieter"
 msgid "Maximum Evaluations per Page"
 msgstr "Maximale Anzahl von Bewertungen pro Seite"
 
+#: admin/partials/tabs/general-options.php:13
+msgid "Show Badge or not?"
+msgstr ""
+
 #: admin/partials/tabs/input-options.php:2
+msgid "Evaluations Published Directly?"
+msgstr ""
+
+#: admin/partials/tabs/input-options.php:8
+msgid "Terms of Service Text"
+msgstr ""
+
+#: admin/partials/tabs/input-options.php:13
+msgid "Terms of Service URL"
+msgstr ""
+
+#: admin/partials/tabs/input-options.php:18
 msgid "Evaluation Title"
 msgstr "Bewertungstitel"
 
-#: admin/partials/tabs/input-options.php:8
+#: admin/partials/tabs/input-options.php:24
 msgid "Evaluation Label #1"
 msgstr "Bewertungslabel #1"
 
-#: admin/partials/tabs/input-options.php:14
+#: admin/partials/tabs/input-options.php:30
 msgid "Evaluation Label #2"
 msgstr "Bewertungslabel #1"
 
-#: admin/partials/tabs/input-options.php:20
+#: admin/partials/tabs/input-options.php:36
 msgid "Evaluation Label #3"
 msgstr "Bewertungslabel #1"
 
-#: admin/partials/tabs/input-options.php:26
+#: admin/partials/tabs/input-options.php:42
 msgid "Evaluation Label #4"
 msgstr "Bewertungslabel #1"
 
-#: admin/partials/tabs/input-options.php:32
+#: admin/partials/tabs/input-options.php:48
 msgid "Evaluation Label #5"
 msgstr "Bewertungslabel #1"
 
-#: admin/partials/tabs/logos-options.php:5
+#: admin/partials/tabs/logos-options.php:4
+msgid "Badge Size"
+msgstr ""
+
+#: admin/partials/tabs/logos-options.php:6
+msgid "Small"
+msgstr ""
+
+#: admin/partials/tabs/logos-options.php:7
+msgid "Medium"
+msgstr ""
+
+#: admin/partials/tabs/logos-options.php:8
+msgid "Big"
+msgstr ""
+
 #: admin/partials/tabs/logos-options.php:16
+#: admin/partials/tabs/logos-options.php:44
+msgid "Pre-defined Badge"
+msgstr ""
+
+#: admin/partials/tabs/logos-options.php:19
+#: admin/partials/tabs/logos-options.php:25
+msgid "Custom Badge"
+msgstr ""
+
+#: admin/partials/tabs/logos-options.php:25
+#: admin/partials/tabs/logos-options.php:44
+msgid "You selected:"
+msgstr ""
+
+#: admin/partials/tabs/logos-options.php:31
 msgid "Upload Logo"
 msgstr "Logo hochladen"
+
+#: admin/partials/tabs/logos-options.php:38
+msgid "Remove"
+msgstr ""
 
 #: admin/partials/tabs/output-options.php:2
 msgid "Evaluate URL"
@@ -235,52 +301,44 @@ msgstr "Mitte"
 msgid "Down"
 msgstr "Unten"
 
-#: admin/partials/tabs/output-options.php:16
-msgid "First Block Text"
-msgstr "Erster Textblock"
-
-#: admin/partials/tabs/output-options.php:21
-msgid "Second Block Text"
-msgstr "Zweiter Textblock"
-
-#: public/class-nhcol-evaluation-public.php:64
-msgid "Not rated"
-msgstr "Nicht bewertet"
-
-#: public/class-nhcol-evaluation-public.php:65
-msgid "Deficiente"
-msgstr "Mangelhaft"
-
-#: public/class-nhcol-evaluation-public.php:66
-msgid "Suficientemente"
-msgstr "Zufriedenstellend"
-
-#: public/class-nhcol-evaluation-public.php:67
-msgid "Satisfatório"
-msgstr "In Ordnung"
-
-#: public/class-nhcol-evaluation-public.php:68
-msgid "Bom"
-msgstr "Gut"
-
-#: public/class-nhcol-evaluation-public.php:69
-msgid "Excelente"
-msgstr "Sehr gut"
-
-#: public/class-nhcol-evaluation-public.php:136
+#: public/class-nhcol-evaluation-public.php:132
 msgid "Evaluation already confirmed."
 msgstr "Bewertung bereits bestätigt."
 
-#: public/class-nhcol-evaluation-public.php:144
+#: public/class-nhcol-evaluation-public.php:140
 msgid "The evaluation was confirmed. Thank you."
 msgstr "Die Bewertung wurde bestätigt. Vielen Dank."
 
-#: public/partials/shortcodes/input.php:58
+#: public/class-nhcol-evaluation-public.php:348
+msgid "Not rated"
+msgstr "Nicht bewertet"
+
+#: public/class-nhcol-evaluation-public.php:349
+msgid "Deficiente"
+msgstr "Mangelhaft"
+
+#: public/class-nhcol-evaluation-public.php:350
+msgid "Suficientemente"
+msgstr "Zufriedenstellend"
+
+#: public/class-nhcol-evaluation-public.php:351
+msgid "Satisfatório"
+msgstr "In Ordnung"
+
+#: public/class-nhcol-evaluation-public.php:352
+msgid "Bom"
+msgstr "Gut"
+
+#: public/class-nhcol-evaluation-public.php:353
+msgid "Excelente"
+msgstr "Sehr gut"
+
+#: public/partials/shortcodes/input.php:62
 #: public/partials/shortcodes/output/average.php:42
 msgid "Total"
 msgstr "Gesamt"
 
-#: public/partials/shortcodes/input.php:59
+#: public/partials/shortcodes/input.php:63
 msgid "from 5 stars"
 msgstr "von 5 Sternen"
 
@@ -296,11 +354,15 @@ msgstr "max. 500 Zeichen"
 msgid "Evaluation Email"
 msgstr "Ihre E-Mailadresse"
 
-#: public/partials/shortcodes/input.php:82
+#: public/partials/shortcodes/input.php:87
+msgid "See terms"
+msgstr ""
+
+#: public/partials/shortcodes/input.php:93
 msgid "Send"
 msgstr "Absenden"
 
-#: public/partials/shortcodes/input.php:86
+#: public/partials/shortcodes/input.php:99
 msgid ""
 "Evaluation submitted with success. You must confirm it on your email. Thank "
 "you!"
@@ -308,7 +370,7 @@ msgstr ""
 "Bewertung mit Erfolg abgesendet. Bitte bestätigen Sie diese noch in ihrer E-"
 "Mail. Vielen Dank."
 
-#: public/partials/shortcodes/input.php:90
+#: public/partials/shortcodes/input.php:103
 msgid "Error while sending the evaluation. Try again later."
 msgstr "Fehler beim Absenden. Bitte erneut probieren"
 
@@ -316,7 +378,7 @@ msgstr "Fehler beim Absenden. Bitte erneut probieren"
 msgid "evaluations for"
 msgstr "Bewertungen Sie uns"
 
-#: public/partials/shortcodes/output/average.php:65
+#: public/partials/shortcodes/output/average.php:74
 msgid "Evaluate Us"
 msgstr "Bewerten Sie uns"
 
@@ -331,6 +393,12 @@ msgstr "&laquo;"
 #: public/partials/shortcodes/output/pagination.php:44
 msgid "&raquo;"
 msgstr "&raquo;"
+
+#~ msgid "First Block Text"
+#~ msgstr "Erster Textblock"
+
+#~ msgid "Second Block Text"
+#~ msgstr "Zweiter Textblock"
 
 #~ msgid ""
 #~ "Comment</th>\n"

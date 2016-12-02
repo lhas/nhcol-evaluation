@@ -20,7 +20,7 @@
 
           <img src="<?php echo $company_logo; ?>" style="margin-bottom: 10px;" alt="">
 
-          <table>
+          <table class="rating-table">
               <tbody>
               <?php foreach($this->plugin_options['labels'] as $index => $label) : ?>
               <?php $average = $label['average']; ?>
@@ -54,6 +54,19 @@
               </tr>
           </tbody></table>
 
+          <div class="badge-right badge-size badge-size-<?php echo $this->plugin_options['badge_size']; ?>">
+            <?php
+              if($this->plugin_options['badge_display_type'] == 'owned') {
+                $seal_logo_url = wp_get_attachment_image_src($this->plugin_options['seal_logo_id'], 'logo1')[0];
+              } else if($this->plugin_options['badge_display_type'] == 'predefined') {
+                $seal_logo_url = $this->plugin_options['badge_predefined_file'];
+              }
+            ?>
+            <img src="<?php echo $seal_logo_url; ?>" />
+          </div>
+
+          <div class="clearfix"></div>
+
       </article>
     </section> <!-- .reviews -->
 
@@ -63,3 +76,28 @@
 
   </div> <!-- .center -->
 </section> <!-- .content-second -->
+
+
+<style type="text/css">
+.content-second {
+  background: <?php echo $this->plugin_options['background_color_output_form']; ?>;
+  padding: 10px;
+}
+
+.rating-table i.fa {
+  color: <?php echo $this->plugin_options['stars_color']; ?>;
+}
+
+.rating-table {
+  width: 400px;
+  float: left;
+}
+
+.badge-right {
+  float: left;
+  margin-left: 20px;
+}
+.clearfix {
+  clear: both;
+}
+</style>
