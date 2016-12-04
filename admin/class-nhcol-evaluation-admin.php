@@ -192,9 +192,9 @@ class Nhcol_Evaluation_Admin {
     $valid['first_block_text'] = (isset($input['first_block_text']) && !empty($input['first_block_text'])) ? $input['first_block_text'] : null;
     $valid['second_block_text'] = (isset($input['second_block_text']) && !empty($input['second_block_text'])) ? $input['second_block_text'] : null;
 
-    $valid['evaluation_label_1'] = (isset($input['evaluation_label_1']) && !empty($input['evaluation_label_1'])) ? $input['evaluation_label_1'] : null;
-    $valid['evaluation_label_2'] = (isset($input['evaluation_label_2']) && !empty($input['evaluation_label_2'])) ? $input['evaluation_label_2'] : null;
-    $valid['evaluation_label_3'] = (isset($input['evaluation_label_3']) && !empty($input['evaluation_label_3'])) ? $input['evaluation_label_3'] : null;
+    $valid['evaluation_label_1'] = (isset($input['evaluation_label_1']) && !empty($input['evaluation_label_1'])) ? $input['evaluation_label_1'] : 'Product Quality';
+    $valid['evaluation_label_2'] = (isset($input['evaluation_label_2']) && !empty($input['evaluation_label_2'])) ? $input['evaluation_label_2'] : 'Delivery';
+    $valid['evaluation_label_3'] = (isset($input['evaluation_label_3']) && !empty($input['evaluation_label_3'])) ? $input['evaluation_label_3'] : 'Stock Availability';
     $valid['evaluation_label_4'] = (isset($input['evaluation_label_4']) && !empty($input['evaluation_label_4'])) ? $input['evaluation_label_4'] : null;
     $valid['evaluation_label_5'] = (isset($input['evaluation_label_5']) && !empty($input['evaluation_label_5'])) ? $input['evaluation_label_5'] : null;
 
@@ -232,7 +232,7 @@ class Nhcol_Evaluation_Admin {
     // Seal Logo
     $valid['seal_logo_id'] = (isset($input['seal_logo_id']) && !empty($input['seal_logo_id'])) ? absint($input['seal_logo_id']) : 0;
     
-    $valid['show_badge'] = (isset($input['show_badge']) && !empty($input['show_badge'])) ? $input['show_badge'] : 0;
+    $valid['show_badge'] = (isset($input['show_badge']) && !empty($input['show_badge'])) ? $input['show_badge'] : 1;
 
     // Terms of Service
     $valid['terms_of_service_text'] = (isset($input['terms_of_service_text']) && !empty($input['terms_of_service_text'])) ? $input['terms_of_service_text'] : null;

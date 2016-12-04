@@ -9,9 +9,10 @@
         </select>
     </fieldset>
 
+<?php if(PLUGIN_MODE == 'PREMIUM') : ?>
     <fieldset class="logo-fieldset">
 
-        <h3>I want to use...</h3>
+        <h3><?php _e( 'I want to use...', $this->plugin_name); ?></h3>
         <label>
             <input type="radio" name="<?php echo $this->plugin_name; ?>[badge_display_type]" ng-model="$ctrl.options.badge_display_type" value="predefined">  <?php _e( 'Pre-defined Badge', $this->plugin_name); ?>
         </label>
@@ -42,7 +43,7 @@
     <fieldset class="logo-fieldset" ng-if="$ctrl.options.badge_display_type == 'predefined'">
 
         <h3 class="you-selected"><?php _e( 'You selected:', $this->plugin_name); ?> <b><?php _e( 'Pre-defined Badge', $this->plugin_name); ?></b></h3>
-        
+
         <?php
         // Let's get the current predefined badges at badges/ folder
         $path = plugin_dir_path( __FILE__ ) . '../../../badges/';
@@ -65,5 +66,6 @@
         <?php endforeach; ?>
 
     </fieldset>
+<?php endif; ?>
 
 </div>
