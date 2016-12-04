@@ -8,6 +8,15 @@
   } else if($this->plugin_options['badge_display_type'] == 'predefined') {
     $seal_logo_url = $this->plugin_options['badge_predefined_file'];
   }
+  
+  if(PLUGIN_MODE == 'STANDARD') :
+      // Let's get the current predefined badges at badges/ folder
+      $path = plugin_dir_path( __FILE__ ) . '../../../badges/';
+      $url = plugin_dir_url( __FILE__ ) . '../../../badges/';
+      $files = array_diff(scandir($path), array('..', '.'));
+
+      $seal_logo_url = $url . array_values($files)[0];
+  endif;
 ?>
 
 <a id="nhcol-evaluation-badge2" class="badge-size badge-size-<?php echo $this->plugin_options['badge_size']; ?>" href="<?php echo $this->plugin_options['evaluate_url']; ?>" title="<?php echo $company_name; ?>">

@@ -14,12 +14,6 @@
               <strong class="number"><?php echo $this->plugin_options['ratingValueFormatted']; ?></strong><span class="number"> / 5,0</span>
           </h1>
 
-          <?php
-            $company_logo = wp_get_attachment_image_src($this->plugin_options['company_logo_id'], 'logo1')[0];
-          ?>
-
-          <img src="<?php echo $company_logo; ?>" style="margin-bottom: 10px;" alt="">
-
           <table class="rating-table">
               <tbody>
               <?php foreach($this->plugin_options['labels'] as $index => $label) : ?>
@@ -54,13 +48,22 @@
               </tr>
           </tbody></table>
 
-          <div class="badge-right badge-size badge-size-<?php echo $this->plugin_options['badge_size']; ?>">
+          <div class="badge-right badge-size badge-size-big">
             <?php
               if($this->plugin_options['badge_display_type'] == 'owned') {
                 $seal_logo_url = wp_get_attachment_image_src($this->plugin_options['seal_logo_id'], 'logo1')[0];
               } else if($this->plugin_options['badge_display_type'] == 'predefined') {
                 $seal_logo_url = $this->plugin_options['badge_predefined_file'];
               }
+
+              if(PLUGIN_MODE == 'STANDARD') :
+                  // Let's get the current predefined badges at badges/ folder
+                  $path = plugin_dir_path( __FILE__ ) . '../../../../badges/';
+                  $url = plugin_dir_url( __FILE__ ) . '../../../../badges/';
+                  $files = array_diff(scandir($path), array('..', '.'));
+
+                  $seal_logo_url = $url . array_values($files)[0];
+              endif;
             ?>
             <img src="<?php echo $seal_logo_url; ?>" />
           </div>
