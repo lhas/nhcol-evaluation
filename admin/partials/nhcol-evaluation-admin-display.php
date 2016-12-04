@@ -76,8 +76,9 @@
 
         <a href="?page=nhcol-evaluation_setup&tab=output_options" class="nav-tab <?php echo $active_tab == 'output_options' ? 'nav-tab-active' : ''; ?>"><?php echo _e('Output Options', $this->plugin_name); ?></a>
 
+        <a href="?page=nhcol-evaluation_setup&tab=input_options" class="nav-tab <?php echo $active_tab == 'input_options' ? 'nav-tab-active' : ''; ?>"><?php echo _e('Input Options', $this->plugin_name); ?></a>
+
         <?php if(PLUGIN_MODE == 'PREMIUM') : ?>
-            <a href="?page=nhcol-evaluation_setup&tab=input_options" class="nav-tab <?php echo $active_tab == 'input_options' ? 'nav-tab-active' : ''; ?>"><?php echo _e('Input Options', $this->plugin_name); ?></a>
             <a href="?page=nhcol-evaluation_setup&tab=logos_options" class="nav-tab <?php echo $active_tab == 'logos_options' ? 'nav-tab-active' : ''; ?>"><?php echo _e('Logos Options', $this->plugin_name); ?></a>
             <a href="?page=nhcol-evaluation_setup&tab=colors_options" class="nav-tab <?php echo $active_tab == 'colors_options' ? 'nav-tab-active' : ''; ?>"><?php echo _e('Colors Options', $this->plugin_name); ?></a>
         <?php endif; ?>
