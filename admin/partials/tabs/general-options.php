@@ -9,8 +9,10 @@
     <input type="text" class="regular-text digit-only" id="<?php echo $this->plugin_name; ?>-maximum_evaluations_per_page" name="<?php echo $this->plugin_name; ?>[maximum_evaluations_per_page]" value="<?php if(!empty($maximum_evaluations_per_page)) echo $maximum_evaluations_per_page; ?>"/>
 </fieldset>
 
-<fieldset>
-    <p><?php _e('Show Badge or not?', $this->plugin_name); ?></p>
-    <input type="hidden" name="<?php echo $this->plugin_name; ?>[show_badge]" value="0">
-    <input type="checkbox" id="<?php echo $this->plugin_name; ?>-show_badge" name="<?php echo $this->plugin_name; ?>[show_badge]" value="1" <?php if(!empty($show_badge)) { ?>checked="checked"<?php } ?> />
-</fieldset>
+<?php if(PLUGIN_MODE == 'PREMIUM') : ?>
+  <fieldset>
+      <p><?php _e('Show Badge or not?', $this->plugin_name); ?></p>
+      <input type="hidden" name="<?php echo $this->plugin_name; ?>[show_badge]" value="0">
+      <input type="checkbox" id="<?php echo $this->plugin_name; ?>-show_badge" name="<?php echo $this->plugin_name; ?>[show_badge]" value="1" <?php if(!empty($show_badge)) { ?>checked="checked"<?php } ?> />
+  </fieldset>
+<?php endif; ?>
