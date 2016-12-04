@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NHCOL Evaluation\n"
-"POT-Creation-Date: 2016-12-02 19:48-0200\n"
-"PO-Revision-Date: 2016-12-02 19:49-0200\n"
+"POT-Creation-Date: 2016-12-04 04:02-0200\n"
+"PO-Revision-Date: 2016-12-04 04:02-0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -131,7 +131,7 @@ msgstr "Configurações Gerais"
 msgid "Output Options"
 msgstr "Configurações de Output"
 
-#: admin/partials/nhcol-evaluation-admin-display.php:80
+#: admin/partials/nhcol-evaluation-admin-display.php:79
 msgid "Input Options"
 msgstr "Configurações de Input"
 
@@ -139,27 +139,27 @@ msgstr "Configurações de Input"
 msgid "Logos Options"
 msgstr "Configurações de Logo"
 
-#: admin/partials/nhcol-evaluation-admin-display.php:82
+#: admin/partials/nhcol-evaluation-admin-display.php:84
 msgid "Colors Options"
 msgstr "Configurações de Cor"
 
-#: admin/partials/nhcol-evaluation-admin-display.php:107
+#: admin/partials/nhcol-evaluation-admin-display.php:109
 msgid "Save all"
 msgstr "Salvar tudo"
 
-#: admin/partials/nhcol-evaluation-admin-display.php:115
+#: admin/partials/nhcol-evaluation-admin-display.php:117
 msgid "Input Form"
 msgstr "Formulário de Input"
 
-#: admin/partials/nhcol-evaluation-admin-display.php:120
+#: admin/partials/nhcol-evaluation-admin-display.php:122
 msgid "Output Average"
 msgstr "Output de Média"
 
-#: admin/partials/nhcol-evaluation-admin-display.php:125
+#: admin/partials/nhcol-evaluation-admin-display.php:127
 msgid "Output Pagination"
 msgstr "Output de Paginação"
 
-#: admin/partials/nhcol-evaluation-admin-display.php:130
+#: admin/partials/nhcol-evaluation-admin-display.php:132
 msgid "Badge"
 msgstr "Badge"
 
@@ -189,12 +189,12 @@ msgid "Company Name"
 msgstr "Nome da Empresa"
 
 #: admin/partials/tabs/general-options.php:3
-#: admin/partials/tabs/input-options.php:19
-#: admin/partials/tabs/input-options.php:25
-#: admin/partials/tabs/input-options.php:31
-#: admin/partials/tabs/input-options.php:37
-#: admin/partials/tabs/input-options.php:43
-#: admin/partials/tabs/input-options.php:49
+#: admin/partials/tabs/input-options.php:23
+#: admin/partials/tabs/input-options.php:29
+#: admin/partials/tabs/input-options.php:35
+#: admin/partials/tabs/input-options.php:41
+#: admin/partials/tabs/input-options.php:47
+#: admin/partials/tabs/input-options.php:53
 msgid "Choose your prefered cdn provider"
 msgstr "Choose your prefered cdn provider"
 
@@ -202,43 +202,43 @@ msgstr "Choose your prefered cdn provider"
 msgid "Maximum Evaluations per Page"
 msgstr "Avaliações por Página"
 
-#: admin/partials/tabs/general-options.php:13
+#: admin/partials/tabs/general-options.php:14
 msgid "Show Badge or not?"
 msgstr "Mostrar Badge ou não?"
 
-#: admin/partials/tabs/input-options.php:2
+#: admin/partials/tabs/input-options.php:3
 msgid "Evaluations Published Directly?"
 msgstr "Avaliações devem ser publicadas diretamente?"
 
-#: admin/partials/tabs/input-options.php:8
+#: admin/partials/tabs/input-options.php:10
 msgid "Terms of Service Text"
 msgstr "Texto de Termos de Serviço"
 
-#: admin/partials/tabs/input-options.php:13
+#: admin/partials/tabs/input-options.php:15
 msgid "Terms of Service URL"
 msgstr "URL de Termos de Serviço"
 
-#: admin/partials/tabs/input-options.php:18
+#: admin/partials/tabs/input-options.php:22
 msgid "Evaluation Title"
 msgstr "Título da Avaliação"
 
-#: admin/partials/tabs/input-options.php:24
+#: admin/partials/tabs/input-options.php:28
 msgid "Evaluation Label #1"
 msgstr "Label #1 da Avaliação"
 
-#: admin/partials/tabs/input-options.php:30
+#: admin/partials/tabs/input-options.php:34
 msgid "Evaluation Label #2"
 msgstr "Label #2 da Avaliação"
 
-#: admin/partials/tabs/input-options.php:36
+#: admin/partials/tabs/input-options.php:40
 msgid "Evaluation Label #3"
 msgstr "Label #3 da Avaliação"
 
-#: admin/partials/tabs/input-options.php:42
+#: admin/partials/tabs/input-options.php:46
 msgid "Evaluation Label #4"
 msgstr "Label #4 da Avaliação"
 
-#: admin/partials/tabs/input-options.php:48
+#: admin/partials/tabs/input-options.php:52
 msgid "Evaluation Label #5"
 msgstr "Label #5 da Avaliação"
 
@@ -258,26 +258,30 @@ msgstr "Médio"
 msgid "Big"
 msgstr "Grande"
 
-#: admin/partials/tabs/logos-options.php:16
-#: admin/partials/tabs/logos-options.php:44
+#: admin/partials/tabs/logos-options.php:15
+msgid "I want to use..."
+msgstr "Eu quero usar..."
+
+#: admin/partials/tabs/logos-options.php:17
+#: admin/partials/tabs/logos-options.php:45
 msgid "Pre-defined Badge"
 msgstr "Badge pré-definido"
 
-#: admin/partials/tabs/logos-options.php:19
-#: admin/partials/tabs/logos-options.php:25
+#: admin/partials/tabs/logos-options.php:20
+#: admin/partials/tabs/logos-options.php:26
 msgid "Custom Badge"
 msgstr "Badge Personalizado"
 
-#: admin/partials/tabs/logos-options.php:25
-#: admin/partials/tabs/logos-options.php:44
+#: admin/partials/tabs/logos-options.php:26
+#: admin/partials/tabs/logos-options.php:45
 msgid "You selected:"
 msgstr "Você selecionou:"
 
-#: admin/partials/tabs/logos-options.php:31
+#: admin/partials/tabs/logos-options.php:32
 msgid "Upload Logo"
 msgstr "Enviar Logo"
 
-#: admin/partials/tabs/logos-options.php:38
+#: admin/partials/tabs/logos-options.php:39
 msgid "Remove"
 msgstr "Excluir"
 
@@ -334,7 +338,7 @@ msgid "Excelente"
 msgstr "Excelente"
 
 #: public/partials/shortcodes/input.php:62
-#: public/partials/shortcodes/output/average.php:42
+#: public/partials/shortcodes/output/average.php:36
 msgid "Total"
 msgstr "Total"
 
@@ -377,7 +381,7 @@ msgstr "Erro enquanto enviava a avaliação. Tente novamente mais tarde."
 msgid "evaluations for"
 msgstr "avaliações para"
 
-#: public/partials/shortcodes/output/average.php:74
+#: public/partials/shortcodes/output/average.php:77
 msgid "Evaluate Us"
 msgstr "Nos Avalie"
 
