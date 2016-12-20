@@ -73,4 +73,4 @@ function wp_insert_evaluation( $args = array() ) {
     return false;
 }
 
-define('PLUGIN_MODE', 'PREMIUM');
+define('PLUGIN_MODE', 'STANDARD');
