@@ -15,8 +15,8 @@
           </td>
         </tr>
         <tr valign="top">
-          <th scope="row"><?php echo _e('Order Number', $this->plugin_name); ?></th>
-          <td><input type="text" required name="evaluation[order_number]" class="regular-text" value="" /></td>
+          <th scope="row"><?php echo _e('Name', $this->plugin_name); ?></th>
+          <td><input type="text" required name="evaluation[name]" class="regular-text" value="" /></td>
         </tr>
 
         <?php

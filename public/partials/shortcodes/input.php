@@ -75,8 +75,8 @@
                   <input id="input_0" type="email" required ng-model="$ctrl.evaluation.email">
               </li>
               <li>
-                  <label for="input_1"><?php echo __('Order Number', $this->plugin_name); ?>: <span>*</span></label>
-                  <input id="input_1" type="text" required ng-model="$ctrl.evaluation.order_number">
+                  <label for="input_1"><?php echo __('Name', $this->plugin_name); ?>: <span>*</span></label>
+                  <input id="input_1" type="text" required ng-model="$ctrl.evaluation.name">
               </li>
               <li>
                 <input type="checkbox" value="1" required id="terms_of_service_checkbox"> 

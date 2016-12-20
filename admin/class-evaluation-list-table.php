@@ -103,7 +103,7 @@ class Evaluation_List_Table extends WP_List_Table {
         break;
       case 'email':
       case 'comment':
-      case 'order_number':
+      case 'name':
         return $item[ $column_name ];
         break;
       case 'evaluation_field_1':

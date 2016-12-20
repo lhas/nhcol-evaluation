@@ -41,7 +41,7 @@ class Nhcol_Evaluation_Activator {
 			time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 			email varchar(255) NOT NULL,
 			comment text NOT NULL,
-			order_number varchar(255) NOT NULL,
+			name varchar(255) NOT NULL,
 			evaluation_field_1 int NULL,
 			evaluation_field_2 int NULL,
 			evaluation_field_3 int NULL,
