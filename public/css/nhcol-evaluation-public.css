@@ -198,13 +198,52 @@
 }
 
 .badge-size.badge-size-small img {
-  width: 75px;
+  width: 50px;
 }
 
 .badge-size.badge-size-medium img {
-  width: 150px;
+  width: 100px;
 }
 
 .badge-size.badge-size-big img {
-  width: 250px;
+  width: 150px;
+}
+
+.left-details {
+  float: left;
+  margin-right: 10px;
+}
+.left-details h1 {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  font-size: 24px !important;
+  line-height: 26px !important;
+  text-align: center;
+}
+.stars-details {
+  font-size: 40px;
+}
+.rating-table, .rating-table tr,  .rating-table td {
+  border: none;
+}
+.rating-table tr.even {
+  background: rgba(255,255,255,0.5);
+}
+.btn-evaluate-us {
+  float: right;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  height: 40px !important;
+  line-height: 40px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  margin-bottom: 20px !important;
+  background: #2ECC71 !important;
+  border: none !important;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2) !important;
+  color: #FFF !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 2px !important;
+  letter-spacing: .5px !important;
 }
