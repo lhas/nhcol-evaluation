@@ -21,7 +21,7 @@ class Evaluation_List_Table extends WP_List_Table {
 
     $columns['email']         = __('Email', self::$plugin_name);
     $columns['comment']       = __('Comment', self::$plugin_name);
-    $columns['order_number']  = __('Order N.', self::$plugin_name);
+    $columns['name']  = __('Name', self::$plugin_name);
 
 
     for($i = 1; $i <= 5; $i++) {
@@ -48,7 +48,7 @@ class Evaluation_List_Table extends WP_List_Table {
       $sortable_columns['confirmed_admin'] = array('confirmed_admin', true);
     }
 
-    $sortable_columns['order_number']       = array('order_number',false);
+    $sortable_columns['name']       = array('name',false);
     $sortable_columns['evaluation_field_1'] = array('evaluation_field_1',false);
     $sortable_columns['evaluation_field_2'] = array('evaluation_field_2',false);
     $sortable_columns['evaluation_field_3'] = array('evaluation_field_3',false);
